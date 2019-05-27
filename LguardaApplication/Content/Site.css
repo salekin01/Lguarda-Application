@@ -1,0 +1,810 @@
+﻿
+
+/* mitu starts from here*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.Scroll_table {
+    display: block;
+    height: 100%;
+    overflow-y: scroll;
+    height: 550px;
+    width: 70%;
+    position: absolute;
+    /*overflow-y: scroll;*/
+}
+/* styles for validation helpers */
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #7D6092;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #4b0a7a;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*Main HTML Body*/
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.LoginBody {
+    margin: 0 auto;
+    display: table;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background: #c0a4d4;
+    /*background: linear-gradient(135deg, rgba(241,142,153,1) 0%, rgba(186,39,55,1) 49%, rgba(210,75,90,1) 70%, rgba(239,197,202,1) 100%);*/
+    max-width: 33em;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+}
+/*End of Main HTML Body*/
+
+/*Log in page style*/
+
+Loginbody {
+    background: #BF303F;
+    border-top: solid 10px #fff;
+    font-size: .85em;
+    font-family: Calibri;
+    margin: auto;
+    line-height: normal;
+    width: 100%;
+    height: 100%;
+}
+
+.featuredLogin {
+    margin: 0 auto;
+    display: table;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background: radial-gradient(ellipse at center, rgba(255,204,255,1) 11%, rgba(245,203,251,1) 27%, rgba(213,200,239,1) 81%, rgba(206,199,236,1) 92%, rgba(210,203,238,1) 93%, rgba(235,233,249,1) 100%);
+    max-width: 33em;
+    width: 330px;
+}
+
+section.featuredLogin {
+    margin: 0 auto;
+    text-align: left;
+}
+
+/*End of Log in page style*/
+
+/*Main Content*/
+
+.content-wrapper {
+    margin: 0 auto; /*for center align*/
+    max-width: 960px;
+}
+
+#body {
+    /*background-color: #4d80a4;*/
+    clear: both;
+}
+
+.main-content {
+    background-color: #dbe4f6;
+}
+
+.featured + .main-content {
+    /*background-color: #dbe4f6;*/
+}
+
+.featured {
+    /*background: radial-gradient(ellipse at center, rgba(255,204,255,1) 11%, rgba(245,203,251,1) 27%, rgba(213,200,239,1) 81%, rgba(206,199,236,1) 92%, rgba(210,203,238,1) 93%, rgba(235,233,249,1) 100%);*/
+
+     background: radial-gradient(ellipse at center, rgb(204,167,215) 11%, rgb(204,167,215) 27%, rgba(113, 87, 133, 1) 81%, rgba(113, 87, 133, 1) 92%, rgba(113, 87, 133, 1) 93%, rgb(125,96,146) 100%);
+    
+      /*background: radial-gradient(ellipse at center, rgba(255,204,255,1) 11%, rgba(245,203,251,1) 27%, rgba(113, 87, 133, 1) 81%, rgba(113, 87, 133, 1) 92%, rgba(113, 87, 133, 1) 93%, rgb(125,96,146) 100%);*/
+   
+     /*background: radial-gradient(ellipse at center, rgba(0,128,128,1) 0%, rgba(52,80,90,1) 100%);*/
+    /*background : #7D6092;*/
+    color: black;
+    padding-top: 20px;
+    height: 650px;
+    margin-bottom: 0;
+    font-family: Calibri;
+    font-size: 9pt;
+}
+
+.PageTitle {
+    color: navy;
+    background-color: #fff;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 9pt;
+    margin-left: 1.5%;
+}
+/*End of Main Content*/
+
+/*Header, Footer, Icon*/
+
+header {
+    background-color: #7D6092;
+    font-size: 12px;
+    height: 35px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #7D6092;
+    font-size: 10px;
+    padding-top: 20px;
+    height: 45px;
+    font-family: Calibri;
+}
+
+.UserIcon {
+    border-color: blueviolet;
+    /*font-size: 25pt;*/
+    padding: 70px 50px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 300px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+}
+
+.HomeIcon {
+    font-size: 12pt;
+}
+
+.IndextIcon {
+    font-size: 12pt;
+    color: white;
+}
+
+.menuIcon {
+    margin-top: 2px;
+    float: right;
+}
+
+.LeadsCopyright {
+    color: navy;
+    font-size: 8pt;
+    margin-top: 10px;
+    font-family: Calibri;
+}
+
+.footerCaption {
+    text-align: center;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 8pt;
+    color: navy;
+}
+
+.float-center {
+    color: white;
+    font-family: Calibri;
+    font-size: 8pt;
+    text-align: center;
+    font-weight: bold;
+}
+/*End of Header, Footer, Icon*/
+
+/*miscellaneous*/
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.MsgSection {
+    text-align: center;
+    font-weight: bold;
+    max-width: 340px;
+    height: auto;
+    font-family: Calibri;
+    font-size: 20pt;
+    border: 2px solid red;
+    background-color: #dbe4f6;
+    color: green;
+    margin: 0 auto;
+    /*position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #ffc;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+    font-weight: bold;
+    width: 99%;*/
+}
+
+.MsgSectionEdit {
+    text-align: center;
+    font-weight: 100;
+    max-width: 340px;
+    height: auto;
+    font-family: Calibri;
+    font-size: 10pt;
+    background-color: #dbe4f6;
+    color: green;
+    margin: 1px;
+}
+
+.element {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+}
+
+.LeftPadding {
+    margin-left: 1.5%;
+}
+/*End of miscellaneous*/
+
+/*Link*/
+a:link, a:visited,
+a:active, a:hover {
+    color: white;
+}
+/*End of Link*/
+
+/*Section For responsive*/
+
+body {
+    background: none;
+    font-size: 22px;
+    line-height: 32px;
+    color: #6d0019;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word !important;
+    font-family: Calibri;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+    color: #FFF;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    color: #FFF;
+}
+
+    h3 a {
+        color: #FFF;
+    }
+
+a {
+    color: #FFF;
+}
+
+h1 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 60px;
+    line-height: 70px;
+    font-family: Calibri;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 890px;
+}
+
+p {
+    text-align: center;
+}
+
+.toggle, [id^=drop] {
+    display: none;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    background-color: #4B3E5B;
+    width: 93%;
+    z-index: 10;
+    /*Center Position*/
+    /*float: left;
+    width: 100%;
+    position: relative;*/
+}
+
+#logo {
+    display: block;
+    padding: 0 30px;
+    float: left;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+nav:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul {
+    /*float: right;*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    z-index: 10;
+    /*Center Position*/
+    /*float: left;
+    left: 50%;
+    border-radius: 4px;*/
+}
+
+    nav ul li {
+        margin: 0px;
+        display: inline-block;
+        float: left;
+        background-color: #4B3E5B;
+        z-index: 10;
+        /*Center Position pp*/
+        /*padding: 0;
+        position: relative;
+        right: 50%;
+        border-radius: 4px;*/
+    }
+
+nav a {
+    display: block;
+    padding: 0 20px;
+    color: #645379;
+    font-size: 9pt;
+    font-family: Calibri;
+    line-height: 35px;
+    text-decoration: none;
+}
+
+nav ul li ul li:hover {
+    background: #645379;
+}
+
+nav a:hover {
+    background-color: #645379;
+    text-decoration: none;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 35px;
+    z-index: 10;
+}
+
+nav ul li:hover > ul {
+    display: inherit;
+}
+
+nav ul ul li {
+    width: 150px;
+    float: none;
+    display: list-item;
+    position: relative;
+    border-radius: 4px;
+}
+
+nav ul ul ul li {
+    position: relative;
+    top: -35px;
+    /*pp*/
+    left: 150px;
+    /*left:50%;*/
+}
+
+li > a:after { /*content: ' +';*/
+}
+
+li > a:only-child:after { /*content: '';*/
+}
+
+.divider {
+    height: 1px;
+    background-color: #dbe4f6;
+}
+
+/*Login Text*/
+.Txtinput {
+    color: #7D6092;
+    background: #fff; /* Old browsers */
+    /*background: linear-gradient(45deg,  #68add8 0%,#8cbede 100%);*/ /* W3C */
+    width: 450px;
+    height: 40px;
+    margin: 0 auto 10px auto;
+    font-size: 14px;
+    padding-left: 15px;
+    border: none;
+    box-shadow: -3px 3px #7D6092;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    border-top: 1px solid #92c5e2;
+    border-right: 1px solid #92c5e2;
+}
+
+input::-webkit-input-placeholder {
+    color: #FFF;
+}
+
+input[type=submit] {
+    color: #fff;
+    background-color: #3f88b8;
+    font-size: 14px;
+    height: 40px;
+    border: none;
+    margin: 0 auto 0 17px;
+    padding: 0 20px 0 20px;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type=submit]:hover {
+        background-color: #3f7ba2;
+    }
+/*Image Background*/
+div.background {
+    width: 100%;
+    height: 200px;
+    text-align: right;
+    /*background-image: url( '../Image/BankNameLogo.jpg');*/
+    background-image: url( '../Images/Bank_logo_new.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.indexBackgroundWithAnchor {
+    /*width: 100%;*/
+    height: 37px;
+    background-image: url( '../Images/anchor4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.indexBackground {
+    /*width: 100%;*/
+    height: 45px;
+    background-image: url( '../Image/anchor_Index.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.transbox {
+    /*margin: 30px;*/
+    /*  width: 80%;
+        height: 350px;*/
+    /*margin:50px 50px;*/
+    /*background-color:#ffffff;
+ 
+  opacity:0.7;*/
+    /*background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60)*/ /* For IE8 and earlier */
+    width: 100%;
+    height: 200px;
+    margin-top: 5px;
+    background-image: url( '../Image/ancore_home.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+    div.transbox p {
+        /*margin: 5%;*/
+        /*font-weight: bold;*/
+        /*color: #000000;*/
+    }
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 533px) {
+
+    #logo {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        float: none;
+        line-height: 15px;
+    }
+
+    nav {
+        margin: 0;
+        width: 100%;
+    }
+
+    .toggle + a,
+    .menu {
+        display: none;
+    }
+    /*ppp*/
+    .toggle {
+        display: block;
+        background-color: white;
+        padding: 0 20px;
+        color: navy;
+        font-size: 10px;
+        line-height: 8px;
+        text-decoration: none;
+        border: none;
+    }
+
+        .toggle:hover {
+            background-color: navy;
+        }
+
+
+    [id^=drop]:checked + ul {
+        display: block;
+    }
+
+    nav ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul ul .toggle,
+    nav ul ul a {
+        padding: 0 40px;
+    }
+
+    nav ul ul ul a {
+        padding: 0 80px;
+    }
+
+    nav a:hover,
+    nav ul ul ul a {
+        background-color: #4d80a4;
+        color: navy;
+    }
+
+    nav ul li ul li .toggle,
+    nav ul ul a {
+        background-color: navy;
+    }
+
+    nav ul ul {
+        float: none;
+        position: static;
+        color: #ffffff;
+    }
+
+        nav ul ul li:hover > ul,
+        nav ul li:hover > ul {
+            display: none;
+        }
+
+        nav ul ul li {
+            display: block;
+            width: 100%;
+        }
+
+        nav ul ul ul li {
+            position: static;
+        }
+
+    .divider {
+        display: none;
+    }
+
+    div.background {
+        /*background-image: url( '../Image/BankNameLogo_small.jpg');*/
+        background-image: url( '../Image/BankNameLogo_small.png');
+    }
+
+    div.indexBackground {
+        /*background-image: url( '../Image/anchor_Index_Small.png');*/
+        background-image: url( '../Image/anchor_index_sm.png');
+    }
+
+    div.transbox {
+        background-image: url( '../Image/ancore_background.png');
+    }
+}
+
+@media all and (max-width : 330px) {
+
+    nav ul li {
+        display: block;
+        width: 94%;
+    }
+}
+
+/*.......................Search glyphicon.......................*/
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+    .icon-addon.addon-md .glyphicon,
+    .icon-addon .glyphicon,
+    .icon-addon.addon-md .fa,
+    .icon-addon .fa {
+        position: absolute;
+        z-index: 2;
+        left: 10px;
+        font-size: 14px;
+        width: 20px;
+        margin-left: -2.5px;
+        text-align: center;
+        padding: 10px 0;
+        top: 1px;
+    }
+
+    .icon-addon.addon-sm .form-control f height: 30px; padding: 5px 10px 5px 28px; font-size: 12px; line-height: 1.5;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px;
+}
+/*.......................glyphicon.......................*/
+
+input.myStyle {
+    /*width: 70%;*/
+    height: 30px !IMPORTANT;
+    font-family: Calibri !IMPORTANT;
+    font-size: 13px !IMPORTANT;
+}
+
+.dropDown {
+    height: 30px !IMPORTANT;
+    font-family: Calibri !IMPORTANT;
+    font-size: 13px !IMPORTANT;
+    font-weight: bold;
+    text-align: left;
+    width: 160px;
+}
+/*End of Section For responsive*/
+
+/*--------Scroll for div----------*/
+.scrollMainDiv {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.scrollBodyDiv {
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 55px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+}
+/*--------End of Scroll for div----------*/
+.btnsize {
+    width: 60px;
+    height: 20px;
+}
+
+.btnclear {
+    width: 60px;
+    height: 40px;
+}
+
+/* end mitu*/
+
+
+/*salekin added start*/
+input[type=button] {
+    color: #fff;
+    background-color: #a96db2;
+    font-size: 14px;
+    height: 40px;
+    border: none;
+    margin: 0 auto 0 17px;
+    padding: 0 20px 0 20px;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type=button]:hover {
+        background-color: #3f7ba2;
+    }
+
+
+.jQgridDeleteicon {
+    background: url("../Images/jQgridDelete.png");
+    background-position: 0 0;
+}
+
+.btn-primary {
+    background: #7D6092;
+    color: white;
+}
+
+    .btn-primary.raised {
+        box-shadow: 0 3px 0 0 #007299;
+    }
+
+        .btn-primary.raised:active, .btn-primary.raised.active {
+            background: #33a6cc;
+            box-shadow: none;
+            margin-bottom: -3px;
+            margin-top: 3px;
+        }
+
+.errormsg {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.successmsg {
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*salekin added end*/
+
+
+
+/*Khaled Fixing  Table Header*/
+
+.table-fixed thead {
+  width: 97%;
+}
+.table-fixed tbody {
+  height: 350px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+/*Khaled Fixing  Table Header*/
+
+
+
+
+

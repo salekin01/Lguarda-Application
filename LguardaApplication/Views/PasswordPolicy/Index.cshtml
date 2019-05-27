@@ -1,0 +1,245 @@
+﻿@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_CRD_PASSWORD_POLICY_MAP>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #constrainer {
+        height: 70%;
+        width: 100%;
+    }
+
+    .scrolltable {
+        overflow-x: scroll;
+        height: 100%;
+    }
+
+        .scrolltable > .body {
+            width: -webkit-fit-content;
+            overflow-y: scroll;
+        }
+
+    .scrolltable {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+
+        .scrolltable > .header {
+        }
+
+        .scrolltable > .body {
+            flex: 1;
+            -webkit-flex: 1;
+        }
+
+    th, td {
+        min-width: 150px;
+    }
+</style>
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper scrollMainDiv" id="indexSearch">
+
+            <div class="row">
+                <div class="col-xs-4 form-group ">
+                    <a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus LeftPadding"> </span></a>
+                    <a href="@Url.Action("Index", "Home")">&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+                </div>
+                <div class="col-xs-4 form-group indexBackground">
+                </div>
+                <div class="col-xs-4 form-group ">
+                    @*<a class="float-right" href="@Url.Action("ExportToPdf")"> &nbsp;<span class="glyphicon glyphicon-print float-right"> </span></a>
+                    <a class="float-right" href="@Url.Action("AddFavorites")">&nbsp;<span class="glyphicon glyphicon-star float-right"></span></a>*@
+                    <a class="float-right" href="@Url.Action("Index", "PasswordPolicy")">&nbsp;<span class="glyphicon glyphicon-refresh float-right" style="color:black"> </span></a>
+                    @*<div class="icon-addon addon-sm float-right">
+                        <input type="text" placeholder=Search onkeyup="highlightSearchText(this, 'searchTable')" class="form-control" id="keyWord" style=" font-size: 12px " />
+                        <label for="keyWord" class="glyphicon glyphicon-search" title="Search"></label>
+                    </div>*@
+                </div>
+            </div>
+            <h4 class="PageTitle">Password Policy Setup</h4>
+            <div id="constrainer">
+                <div class="scrolltable" id="searchTable">
+                    <div><br /></div>
+                    <table class="table table-striped">
+                        <tr>
+                            @*<th>
+                                Sl No
+                            </th>*@
+                            <th>
+                                Application Id
+                            </th>
+                            <th>
+                                Password Max Length
+                            </th>
+                            <th>
+                                Password Min Length
+                            </th>
+                            <th>
+                                Non Alpha Numeric Character(Min)
+                            </th>
+                            <th>
+                                Password History Period(Days)
+                            </th>
+                            <th>
+                                Password Reuse Max
+                            </th>
+                            <th>
+                                Failed Login Attempt
+                            </th>
+                            <th>
+                                Password Expiry Period
+                            </th>
+                            <th>
+                                Password Expiry Prior Alert(Days)
+                            <th>
+                                Minimum Capital Letter
+                            <th>
+                                Minimum Small Letter
+                            </th>
+                            <th>
+                                Minimum Numeric character
+                            </th>
+                            <th>
+                                Minimum consequtive of using character
+                            </th>
+                            <th>
+                                Same Password repeat after
+                            </th>
+                            <th>
+                                Password Changed Expiry
+                            </th>
+                            <th>
+                                Password Auto Creation
+                            </th>
+                            <th>
+                                Manual Password Change By Admin
+                            </th>
+                            <th>
+                                Force Password Change At First Login
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.SL_NO)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.APPLICATION_ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_MAX_LENGTH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_MIN_LENGTH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NUMERIC_CHAR_MIN)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_HIS_PERIOD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_REUSE_MAX)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FAILED_LOGIN_ATTEMT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_EXP_PERIOD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_EXP_ALERT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MIN_CAPS_LETTER)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MIN_SMALL_LETTER)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MIN_NUMERIC_CHAR)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MIN_CONS_USE_PASS)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_REPEAT)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_CHANGED_EXPIRY)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_AUTO_CREATION)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_CHANGE_BY_ADMIN)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PASS_CHANG_AT_FIRST_LOGIN)
+                                </td>
+                                <td>
+                                    @*@if (item.AUTH_STATUS_ID == "A")
+                                    {*@
+                                        <a class="btn btn-sm" href="@Url.Action("Edit", new { id = item.APPLICATION_ID })">
+                                            <span class="glyphicon glyphicon-pencil text-primary"> </span>
+                                        </a>
+                                    @*  }*@
+                                    @*else
+                                    {
+                                        <a class="btn btn-sm">
+                                            <span class="glyphicon glyphicon-pencil text-primary"> </span>
+                                        </a>
+                                    }*@
+                                    |
+                                    <a class="btn btn-sm " href="@Url.Action("Details", new { id = item.APPLICATION_ID })">
+                                        <span class="glyphicon glyphicon-book text-success"> </span>
+                                    </a>
+                                    |
+                                    <a class="btn  btn-sm" href="@Url.Action("Delete", new { id = item.APPLICATION_ID })">
+                                        <span class="glyphicon glyphicon-trash text-danger "> </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+            @if (ViewData["Error"] != null)
+            {
+                <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="MsgSectionEdit"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+
+<style>
+    .highlighted {
+        background-color: Yellow;
+    }
+</style>
+<script src="~/Scripts/Search.js"></script>
+
+
+
+
+
+

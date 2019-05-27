@@ -1,0 +1,195 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP
+
+<div>
+
+    @if (Model != null)
+    {
+        <div class="LeftPadding">
+            <div class="LeftPadding">
+                <h4>USER DESCRIPTION</h4>
+            </div>
+        </div>
+        <hr />
+
+        <div class="LeftPadding">
+            <dl class="dl-horizontal LeftPadding">
+                <dt style="text-align:left;">
+                    @*@Html.DisplayNameFor(model => model.USER_ID)*@
+                    User ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_ID)
+                </dd>
+
+                <dt style="text-align:left;">
+                    User Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    User Description
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_DESCRIPTION)
+                </dd>
+                <dt style="text-align:left;">
+                    User Area wise ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_AREA_ID_VALUE)
+                </dd>
+                @*@if (Model.CLASSIFICATION_ID == "1")
+                {
+                <dt style="text-align:left;">
+                    Employee ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EMPLOYEE_ID)
+                </dd>
+                }
+                @if (Model.CLASSIFICATION_ID == "2")
+                {
+                <dt style="text-align:left;">
+                    Customer ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CUSTOMER_ID)
+                </dd>
+                }
+                @if (Model.CLASSIFICATION_ID == "3")
+                {
+                <dt style="text-align:left;">
+                    Agent ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AGENT_ID)
+                </dd>
+                }*@
+                <dt style="text-align:left;">
+                    Account Number
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ACC_NO)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Father's Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FATHERS_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Mother's Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MOTHERS_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Date Of Birth
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DOB)
+                </dd>
+
+                <dt style="text-align:left;">
+                    E-mail Address
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MAIL_ADDRESS)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Mobile Number
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MOB_NO)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Area Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AREA_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Branch Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BRANCH_NAME)
+                </dd>
+                <dt style="text-align:left;">
+                    Lock Status
+                </dt>
+                @if (Model.LOCK_FLAG_FOR_WRONG_ATTM == 1)
+                {
+                <dd>
+                    Locked
+                </dd>
+                }
+                else
+                {
+                <dd>
+                    Unlocked
+                </dd>
+                }
+                <dt style="text-align:left;">
+                    Activation Status
+                </dt>
+                @*@if (Model.ACTIVE_FLAG_FOR_INACTIVE_USER == 1)
+                {
+                <dd>
+                    Active
+                </dd>
+                }
+                else
+                {
+                <dd>
+                    Inactive
+                </dd>
+                }*@
+            </dl>
+        </div>
+
+        @*<div class="row" style="padding-left:15px;">
+            <div class="col-xs-2 form-group ">
+                <input type="button" id="btnNew" value="Reset" class="btn btn-primary btn-sm " onclick="location.href='@Url.Action("Reset", "PasswordReset", new { pUSER_ID = Model.USER_ID })'" />
+            </div>
+            <div class="col-xs-2 form-group ">
+                <input type="button" id="btnClr" value="Clear" class="btn btn-primary btn-sm " @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "PasswordReset")'" />
+            </div>
+        </div>*@
+    }
+
+    @*else
+        {
+            <h2 style="padding-left:40%"> No User Found </h2>
+        }*@
+
+</div>
+
+<style>
+    input[type=button] {
+        width: 100px;
+        padding: 1px;
+    }
+</style>

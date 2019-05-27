@@ -1,0 +1,152 @@
+﻿
+@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_SYS_HOLIDAY_TYPE_MAP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #constrainer {
+        height: 70%;
+        width: 100%;
+    }
+
+    .scrolltable {
+        overflow-x: scroll;
+        height: 100%;
+    }
+
+        .scrolltable > .body {
+            width: -webkit-fit-content;
+            overflow-y: scroll;
+        }
+
+    .scrolltable {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+
+        .scrolltable > .header {
+        }
+
+        .scrolltable > .body {
+            flex: 1;
+            -webkit-flex: 1;
+        }
+
+    th, td {
+        min-width: 150px;
+    }
+</style>
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper scrollMainDiv" id="indexSearch">
+
+            <div class="row">
+                <div class="col-xs-4 form-group ">
+                    <a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus LeftPadding"> </span></a>
+                    <a href="@Url.Action("Index", "Home")">&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+                </div>
+                <div class="col-xs-4 form-group indexBackground">
+                </div>
+                <div class="col-xs-4 form-group ">
+                    @*<a class="float-right" href="@Url.Action("ExportToPdf")"> &nbsp;<span class="glyphicon glyphicon-print float-right"> </span></a>
+                    <a class="float-right" href="@Url.Action("AddFavorites")">&nbsp;<span class="glyphicon glyphicon-star float-right"></span></a>*@
+                    <a class="float-right" href="@Url.Action("Index", "HolidayType")">&nbsp;<span class="glyphicon glyphicon-refresh float-right" style="color:black"> </span></a>
+                    @*<div class="icon-addon addon-sm float-right">
+                        <input type="text" placeholder=Search onkeyup="highlightSearchText(this, 'searchTable')" class="form-control" id="keyWord" style=" font-size: 12px " />
+                        <label for="keyWord" class="glyphicon glyphicon-search" title="Search"></label>
+                    </div>*@
+                </div>
+            </div>
+
+            <h4 class="PageTitle">Holiday SetUp</h4>
+            <div id="constrainer">
+                <div class="scrolltable" id="searchTable">
+                    <div><br /></div>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HOLIDAY_TYPE_ID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HOLIDAY_TYPE_NM)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.WEEKEND)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MAKE_BY)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                           <tr>
+                            <td>
+                         @Html.DisplayFor(modelItem => item.HOLIDAY_TYPE_ID)
+                      </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HOLIDAY_TYPE_NM)
+                         </td>
+                              <td>
+                                 @Html.DisplayFor(modelItem => item.WEEKEND_TEXT)
+                              </td>
+                                
+                         <td>
+                              @Html.DisplayFor(modelItem => item.MAKE_BY)
+                         </td>
+                          
+
+
+
+                                <td>
+                                    <a class="btn btn-sm" href="@Url.Action("Edit", new { id = item.HOLIDAY_TYPE_ID })">
+                                        <span class="glyphicon glyphicon-pencil text-primary"> </span>
+                                    </a>
+                                    |
+                                    <a class="btn btn-sm " href="@Url.Action("Details", new { id = item.HOLIDAY_TYPE_ID })">
+                                        <span class="glyphicon glyphicon-book text-success"> </span>
+                                    </a>
+                                    |
+                                    <a class="btn  btn-sm" @*href="@Url.Action("Delete", new { id = item.APPLICATION_ID })"*@>
+                                        <span class="glyphicon glyphicon-trash text-danger "> </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    </table>
+                </div>
+            </div>
+            @if (ViewData["Error"] != null)
+            {
+                <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="MsgSectionEdit "> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+
+
+}
+
+
+
+<style>
+    .highlighted {
+        background-color: Yellow;
+    }
+</style>
+<script src="~/Scripts/Search.js"></script>

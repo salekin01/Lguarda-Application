@@ -1,0 +1,262 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_CRD_PASSWORD_POLICY_MAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="container scrollMainDiv">
+                <div class="row">
+                    <h4 class="PageTitle">Password Policy Setup</h4>
+                    <a href="@Url.Action("Index")">
+                        <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class=" container scrollBodyDiv LeftPadding">
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Application Id")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.APPLICATION_ID)
+                            </dd>
+                        </dl>
+                        
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password Max Length")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_MAX_LENGTH)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password Min Length")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_MIN_LENGTH)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Non Alpha Numeric Character")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.NUMERIC_CHAR_MIN)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password History Period(Days)")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_HIS_PERIOD)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password Reuse Max")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_REUSE_MAX)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                               @Html.DisplayName("Failed Login Attempt")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.FAILED_LOGIN_ATTEMT)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password Expiry Period")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_EXP_PERIOD)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password Expiry Prior Alert(Days)")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_EXP_ALERT)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                               @Html.DisplayName("Minimum Capital Letter")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MIN_CAPS_LETTER)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Minimum Small Letter")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MIN_SMALL_LETTER)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Minimum Numeric Character")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MIN_NUMERIC_CHAR)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Minimum Consequtive Of Using Character")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MIN_CONS_USE_PASS)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Same Password Repeat After")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_REPEAT)
+                            </dd>
+                        </dl>
+
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Password Changed Expiry")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_CHANGED_EXPIRY)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                               @Html.DisplayName("Password Auto Creation")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_AUTO_CREATION)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                               @Html.DisplayName("Minimum Capital Letter")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MIN_CAPS_LETTER)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Manual Password Change By Admin")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_CHANGE_BY_ADMIN)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Force Password Change At First Login")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PASS_CHANG_AT_FIRST_LOGIN)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Auth Status Id")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.AUTH_STATUS_ID)
+                            </dd>
+                        </dl>
+
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Last Action")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LAST_UPDATE_DT)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row LeftPadding">
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                               @Html.DisplayName("Make Date")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MAKE_DT)
+                            </dd>
+                        </dl>
+                        <dl class="col-xs-6">
+                            <dt class="text-primary">
+                                @Html.DisplayName("Last Action")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LAST_ACTION)
+                            </dd>
+                        </dl>
+                    </div>
+
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+<style>
+
+    dt {
+        float: left;
+        clear: left;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    dd {
+        margin-left: 250px;
+        position: absolute;
+    }
+
+</style>
+

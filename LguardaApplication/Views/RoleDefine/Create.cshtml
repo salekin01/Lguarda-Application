@@ -1,0 +1,301 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_ROLE_DEFINE_MAP
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">Role Define</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        @*<div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+
+                                    @Html.TextBoxFor(m => m.ROLE_ID, new { placeholder = "Role ID", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ROLE_ID)
+                                </div>
+                            </div>*@
+                        @Html.HiddenFor(m => m.ROLE_ID)
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.ROLE_NM, new { placeholder = "Role Name", @id = "role_name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ROLE_NM)
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.ROLE_DESCRIP, new { placeholder = "Role Description", @id = "role_descrip", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ROLE_DESCRIP)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---- Application ----", new { @id = "ddl_Application", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.SERVICE_ID, new List<SelectListItem>(), "---- Service ----", new { @id = "ddl_Service", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SERVICE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.MODULE_ID, new List<SelectListItem>(), "---- Module ----", new { @id = "ddl_Module", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MODULE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.ITEM_TYPE, new List<SelectListItem>(), "---- Item Type ----", new { @id = "ddl_ItemType", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ITEM_TYPE)
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            @*<div style="margin-top: 15px; ">*@
+                            <div class="col-xs-10 form-group" style="overflow: auto; padding-left: 15px; margin-top: 15px;">
+                                <div>
+                                    <table id="grid"></table>
+                                    <div id="pager"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding" style="margin-top: 15px; margin-bottom: 15px;">
+                            <div class="col-xs-2 form-group ">
+                                <button type="button" class="btn btn-primary" id="btnsubmitForSelectedRole">
+                                    <i class="glyphicon glyphicon-arrow-down"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-10 form-group" style="overflow: auto; padding-left: 15px; margin-top: 15px;">
+                                <div>
+                                    <table id="gridSelectedFunction"></table>
+                                    <div id="pager"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div style="clear:left;"></div>
+                            <div class="LeftPadding" style="float:left; ">
+                                @Html.Label("Form Options")
+                            </div>
+                            <div class="row LeftPadding" style="float: left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_CRT_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Create")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_EDT_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Edit")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_DEL_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Delete")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_DTL_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Details")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_INDX_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Index")
+                                </div>
+                            </div>
+
+
+
+
+                            <div style="clear:left;"></div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_OTP_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("OTP")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.CheckBoxFor(model => model.MAINT_2FA_FLAG_B, new { @id = "2FA_FLAG" })
+                                    @Html.Label("2FA")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left; display: none;" id="2FA_HARD">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_2FA_HARD_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Software")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left; display: none;" id="2FA_SOFT">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.MAINT_2FA_SOFT_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Hardware")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.CheckBoxFor(model => model.MAINT_AUTH_FLAG_B, new { @id = "AUTH_FLAG" })
+                                    @Html.Label("Authorize")
+                                </div>
+                            </div>
+                            <div class="row" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(m => m.AUTH_LEVEL, new { placeholder = "Auth Level", id = "Auth_Level", @readonly = "readonly", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AUTH_LEVEL)
+                                </div>
+                            </div>
+                            <div style="clear:left;"></div>
+
+
+
+
+                            <div class="LeftPadding" style="float:left; ">
+                                @Html.Label("Report Options")
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.REPORT_VIEW_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("View")
+                                </div>
+                            </div>
+                            <div class="row" style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.REPORT_PRINT_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Print")
+                                </div>
+                            </div>
+                            <div class="row " style="float:left;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.EditorFor(model => model.REPORT_GEN_FLAG_B, new { @class = "form-control" })
+                                    @Html.Label("Generate")
+                                </div>
+                            </div>
+
+
+                            <div style="clear:left;"></div>*@
+
+
+                        @*<div id="constrainer">
+                                <form class="scrolltable" id="searchTable" action="/RoleDefine/Create" method="post">
+                                    <div><br /></div>
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayName("")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("FUNCTION ID")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("FUNCTION NAME")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("CREATE")
+                                            </th>
+                                            <th></th>
+                                        </tr>
+
+                                        @if (TempData["LIST_LG_FNR_FUNCTION_MAP"] != null)
+                                        {
+                                            foreach (var item in (IEnumerable<LgurdaApp.Model.ControllerModels.LG_FNR_FUNCTION_MAP>)TempData["LIST_LG_FNR_FUNCTION_MAP"])
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.CheckBoxFor(modelItem => item.SELECTED_FLAG_B)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.FUNCTION_ID)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.FUNCTION_NM)
+                                                    </td>
+                                                    <td>
+                                                        @Html.CheckBoxFor(modelItem => item.MAINT_CRT_FLAG_B)
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+
+                                    </table>
+                                </form>
+                            </div>*@
+
+
+
+
+
+                        <div class="row LeftPadding" style="margin-top: 15px;">
+                            <div class="col-xs-6 form-group ">
+
+                                <button type="submit" name="command" value="Save" class="btn btn-primary" id="btnsubmitForCreateRole">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "RoleDefine")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+}
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+
+<script src="~/Scripts/Custom/RoleDefine.js"></script>
+
+<script>
+    var roleid = null;
+    var moduleid = null;
+    var itemtype = null;
+</script>

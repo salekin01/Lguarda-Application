@@ -1,0 +1,205 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_CRD_PASSWORD_CHANGE_MAP
+
+@{
+    ViewBag.Title = "ResetPassword";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var uID = string.Empty;
+}
+
+@*<link rel="shortcut icon" href="Images/shield_icon.ico" />
+    <link href="~/Content/login.css" rel="stylesheet" />*@
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div class="container scrollMainDiv">
+                        <div class="row">
+                            <h4 class="PageTitle">Reset Password</h4>
+                            @*<a href="@Url.Action("Index")">
+                    <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                </a>*@
+                        </div>
+                        @Html.ValidationSummary(true)
+
+
+                        <div class="scrollBodyDiv LeftPadding">
+
+                            <div class="row LeftPadding">
+                                <div class="col-xs-4 form-group">
+                                    @Html.TextBoxFor(model => model.USER_ID, new { placeholder = "User Id", @class = "form-control", id = "u_id" })
+                                    @Html.ValidationMessageFor(model => model.USER_ID)
+                                </div>
+                            </div>
+
+
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    <button type="button" id="btnSearch" value="Search" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+
+
+                                    <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "PasswordReset")'">
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            @if (Model != null)
+                            {
+                                uID = Model.USER_ID;
+                            }
+
+                            <div id="msmqpartial" style="height:auto;width:auto;">
+                                @{Html.RenderPartial("Partial1", Model); }
+                            </div>
+                            <div class="row" style="padding-left:10px;">
+                                <div class="col-xs-2 form-group ">
+                                    <input type="button" id="btnReset" value="Reset" class="btn btn-primary btn-sm " />
+                                </div>
+                                <div class="col-xs-2 form-group ">
+                                    <input type="button" id="btnClr" value="Clear" class="btn btn-primary btn-sm " @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "PasswordReset")'" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <p class="MsgSection" style="position: static; font: message-box;"></p>
+                        @*<p class="MsgSection successmsg" style="position:static;font:message-box;"></p>*@
+                        @*@if (TempData["Error"] != null)
+                        {
+                            <p class="MsgSection" style="position: static; font: message-box;"> @TempData["Error"].ToString()</p>
+                        }
+                        @if (TempData["Success"] != null)
+{
+    <p class="MsgSection successmsg" style="position:static;font:message-box;"> @TempData["Success"].ToString()</p>
+}*@
+
+                    </div>
+                </div>
+            } 
+           
+        </div>
+    </section>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#msmqpartial').hide();
+        $('#btnReset').hide();
+        $('#btnClr').hide();
+        $('.MsgSection').hide();
+        var data;
+    });
+
+    $(document).on("click", "#btnReset", function (e) {
+        e.preventDefault();
+        debugger;
+        var userId = $('#u_id').val();
+
+        if (userId != "") {
+            MyAppUrlSettings = {
+                MyUsefulUrl: '@Url.Action("Reset", "PasswordReset")'
+            };
+            data = { 'pUSER_ID': userId };
+        }
+
+        if (userId != "") {
+            $.ajax({
+                url: MyAppUrlSettings.MyUsefulUrl,
+                datatype: "json",
+                data: data,
+                type: 'POST',
+                cache: false,
+                success: function (data) {
+                    debugger;
+                    if (data == 'Password Reset Successful.')
+                    {
+                        $('#msmqpartial').hide();
+                        $('#btnReset').hide();
+                        $('#btnClr').hide();
+                        $("#u_id").val('');
+                        $('.MsgSection').show();
+                        $(".MsgSection").html('Password Reset Successful.');
+                    }
+                    else
+                    {
+                        $('#msmqpartial').hide();
+                        $('#btnReset').hide();
+                        $('#btnClr').hide();
+                        $('.MsgSection').show();
+                        $(".MsgSection").html(data);
+                        $(".MsgSection").css("color", "red");
+                    }                                         
+                },
+                error: function (data) {
+                    debugger;
+                    $('#msmqpartial').hide();
+                    $('#btnReset').hide();
+                    $('#btnClr').hide();
+                }
+                                    
+            });
+            return false;
+           // window.location.reload();
+        }
+    });
+
+    $(function () {
+
+        $('#btnSearch').click(function (e) {
+            e.preventDefault();
+
+            var userId = $('#u_id').val();
+            $(".MsgSection").empty();
+            $('.MsgSection').hide();
+
+            if (userId != "") {
+                MyAppUrlSettings = {
+                    MyUsefulUrl: '@Url.Action("FindUserDetailById", "PasswordReset")'
+                };
+                data = { 'id': userId };
+            }
+
+            if (userId != "") {
+                $.ajax({
+                    url: MyAppUrlSettings.MyUsefulUrl,
+                    @*url: '@Url.Action("FindUserDetail", "UserStatus")',*@
+                    datatype: "html",
+                    data: data,
+                    type: 'GET',
+                    cache: false,
+                    success: function (data) {
+                        $('#msmqpartial').show();
+                        $('#msmqpartial').html(data);
+                        $('#btnReset').show();
+                        $('#btnClr').show();
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>
+
+<style>
+    input[type=submit] {
+        width: 100px;
+        padding: 1px;
+    }
+
+    input[type=button] {
+        width: 100px;
+        padding: 1px;
+    }
+</style>

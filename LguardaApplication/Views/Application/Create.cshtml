@@ -1,0 +1,177 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_APPLICATION_MAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<link rel="shortcut icon" href="Images/shield_icon.ico" />
+    <link href="~/Content/login.css" rel="stylesheet" />*@
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @*FormId in the html.Beginform is used only for reset purpose in order to clear the messages when reset button click*@
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ApplicationFormId" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="container scrollMainDiv">
+                        <div class="row">
+                            <h4 class="PageTitle">Application Setup</h4>
+                            <a href="@Url.Action("Index")">
+                                <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                        </div>
+                        @Html.ValidationSummary(true)
+                        <div class="scrollBodyDiv LeftPadding ">
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(model => model.APPLICATION_ID, new { placeholder = "Application ID [Auto]", @readonly = "readonly", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(model => model.APPLICATION_NAME, new { placeholder = "Application Name", @id = "ApplicationName", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.APPLICATION_NAME)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.DropDownListFor(m => m.APP_TYPE_ID, Model.LIST_APP_TYPE, "---- App Type ---", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.APP_TYPE_ID)
+                                </div>
+                            </div>
+
+
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @*for save*@
+                                    <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-floppy-disk"></i>
+                                    </button>
+
+                                    @*<button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "Application")'">
+                                            <span class="glyphicon glyphicon-refresh"></span>
+                                        </button>*@
+                                    <button type="reset" class="btn btn-primary " id="btnreset" value="Clear">
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        
+
+                        @*@if (TempData["Error"] != null)
+                            {
+                                <p class="MsgSection"> @TempData["Error"].ToString()</p>
+                            }*@
+
+                        @*@if (TempData["Success"] != null)
+                            {
+                                <p class="element "> @TempData["Success"].ToString()</p>
+                            }*@
+
+                        @*@if (ViewBag.Message != null)
+                            {
+                                <div>
+                                    <p style="color:@ViewBag.Color;">@ViewBag.Message.ToString()</p>
+                                </div>
+                            }*@
+
+                        @if (ViewData["Error"] != null)
+                        {
+                            <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                        }
+                        @if (ViewData["Success"] != null)
+                        {
+                            <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                        }
+
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnreset').click(function () {
+            $('#ApplicationName').val("");
+            $('.field-validation-error').empty();
+            $('.element').empty();
+            return false;
+            //$('#ApplicationFormId')[0].reset();
+            //$("#ApplicationFormId").find('input:text, input:password, input:file, select, textarea').val('');
+        });
+    });
+</script>
+
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+
+            <div class="container_body">
+                <div class="top_content"></div>
+                <h4 class="Page_Title">
+                    <span>&nbsp;Create Application</span>
+                </h4>
+                @Html.ValidationSummary(true)
+                <div class="body_content">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.APPLICATION_ID, "Application ID", new { @class = "col-md-2 col-sm-3 col-xs-4 no_padding" })
+                        <div class="col-md-10 col-sm-9 col-xs-8 no_padding">
+                            @Html.TextBoxFor(model => model.APPLICATION_ID, new { @readonly = "readonly", @placeholder = "[Auto]" })
+                            @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.APPLICATION_NAME, "Application Name", new { @class = "col-md-2 col-sm-3 col-xs-4 no_padding" })
+                        <div class="col-md-10 col-sm-9 col-xs-8 no_padding">
+                            @Html.EditorFor(model => model.APPLICATION_NAME)
+                            @Html.ValidationMessageFor(model => model.APPLICATION_NAME)
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:30px;">
+                        <div class="col-md-10 no_padding">
+                            <input type="submit" name="btnsubmit" value="Create" class="btn btn-success btn_custom" />
+                            <input type="submit" name="btnsubmit" value="Refresh" class="btn btn-primary btn_custom" />
+                            <input type="submit" name="btnsubmit" value="Back" class="btn btn-info btn_custom" />
+                        </div>
+                    </div>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <div>
+                        <p style="color:@ViewBag.Color;">@ViewBag.Message.ToString()</p>
+                    </div>
+                }
+            </div>
+        </div>
+    }*@
+
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@*@section Scripts {
+
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+

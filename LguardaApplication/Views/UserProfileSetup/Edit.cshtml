@@ -1,0 +1,196 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+section featured
+{
+<section class="featured">
+    <div class="content-wrapper">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="container scrollMainDiv">
+                <div>
+                    <h4 class="PageTitle">User Profile Information</h4>
+                    <a href="@Url.Action("Index")">
+                        <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                @*<hr />*@
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.USER_ID)
+                <div class="scrollBodyDiv LeftPadding">
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.USER_ID, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.USER_ID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.USER_ID)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.USER_CLASSIFICATION_ID, new { @class = "control-label col-md-3" })
+                            @Html.DropDownListFor(model => model.USER_CLASSIFICATION_ID, Model.LIST_USER_CLASSIFICATION_FOR_DD, "---------- Select ----------", new { @class = "ddl-width-custom" })
+                            @Html.ValidationMessageFor(model => model.USER_CLASSIFICATION_ID)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.USER_AREA_ID, new { @class = "control-label col-md-3" })
+                            @Html.DropDownListFor(model => model.USER_AREA_ID, Model.LIST_USER_AREA_FOR_DD, "---------- Select ----------", new { @class = "ddl-width-custom" })                        
+                            @Html.ValidationMessageFor(model => model.USER_AREA_ID)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.USER_AREA_ID_VALUE, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.USER_AREA_ID_VALUE, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.USER_AREA_ID_VALUE)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.USER_NAME, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.USER_NAME, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.USER_NAME)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.USER_DESCRIPTION, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.USER_DESCRIPTION, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.USER_DESCRIPTION)
+                        </div>
+                    </div>
+
+                    @*<div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.EMPLOYEE_ID, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.EMPLOYEE_ID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.EMPLOYEE_ID)
+                        </div>
+                    </div>*@
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.BRANCH_ID, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.BRANCH_ID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.BRANCH_ID)
+                        </div>
+                    </div>
+
+                    @*<div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.CUSTOMER_ID, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.CUSTOMER_ID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CUSTOMER_ID)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.AGENT_ID, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.AGENT_ID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AGENT_ID)
+                        </div>
+                    </div>*@
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.ACC_NO, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.ACC_NO, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ACC_NO)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.FATHERS_NAME, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.FATHERS_NAME, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.FATHERS_NAME)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.MOTHERS_NAME, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.MOTHERS_NAME, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MOTHERS_NAME)
+                        </div>
+                    </div>
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.DOB, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.DOB, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.DOB)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.MAIL_ADDRESS, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.MAIL_ADDRESS, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MAIL_ADDRESS)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.MOB_NO, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.MOB_NO, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MOB_NO)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.AUTHENTICATION_ID, new { @class = "control-label col-md-3" })
+                            @Html.DropDownListFor(model => model.AUTHENTICATION_ID, Model.LIST_AUTHENTICATION_TYPE_FOR_DD, "---------- Select ----------", new { @class = "ddl-width-custom" })
+                            @Html.ValidationMessageFor(model => model.AUTHENTICATION_ID)
+                        </div>
+                    </div>
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.TERMINAL_IP, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.TERMINAL_IP, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TERMINAL_IP)
+                        </div>
+                    </div>
+                    <div class="row LeftPadding">
+                        <div class="col-xs-6 form-group ">
+                            @Html.LabelFor(model => model.WORKING_HOUR, new { @class = "control-label col-md-3" })
+                            @Html.DropDownListFor(model => model.WORKING_HOUR, Model.LIST_WORKING_HOUR_FOR_DD, "---------- Select ----------", new { @class = "ddl-width-custom" })
+                            @Html.ValidationMessageFor(model => model.WORKING_HOUR)
+                        </div>
+                    </div>
+
+                    <div class="row LeftPadding">
+                        <div class="col-xs-2 form-group ">
+                            <button class="btn btn-primary btn-sm" type="submit">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <p class="element errormsg" style="font-size:large; color:red;"> @TempData["Error"].ToString()</p>
+        }
+    </div>
+</section>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

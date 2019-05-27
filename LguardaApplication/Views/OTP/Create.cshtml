@@ -1,0 +1,107 @@
+﻿
+@model LgurdaApp.Model.ControllerModels.LG_2FA_OTP_CONFIG_MAP
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">OTP Setup </h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---- Application ----", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+
+                                
+                            </div>
+
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.EditorFor(model => model.MAIL_FLAG_B, new { @class = "form-control" })
+                                @Html.Label("Mail Flag")
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.EditorFor(model => model.SMS_FLAG_B, new { @class = "form-control" })
+                                @Html.Label("SMS Flag")
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.VALIDITY_PERIOD, new { placeholder = "Validity Period[min]", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.VALIDITY_PERIOD)
+
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.NO_OF_OTP_DIGIT, new { placeholder = "No of OTP digit", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NO_OF_OTP_DIGIT)
+
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.OTP_FORMAT_ID, Model.OTP_FORMATE_LIST_FOR_DD, "---- OTP Format ----", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OTP_FORMAT_ID)
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                
+                                <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "OTP")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element "> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+        
+         
+                }
+        </div>
+
+    </section>
+}
+

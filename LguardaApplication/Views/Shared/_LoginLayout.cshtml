@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script type="text/javascript">window.history.forward(); function noBack() { window.history.forward(); }</script>
+
+</head>
+
+<body class="LoginBody" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+
+
+
+
+    @RenderBody()
+
+
+
+    <script>
+        
+        var session_id = '@Session.SessionID';
+
+       //alert( session_id);
+
+       @*if (Session_userid != null || session_id != null) {
+           //window.location = "/Home/Index";
+
+           '@Session["currentUserID"]' == null;
+           '@Session.SessionID' == null;
+
+       }*@
+       
+
+       
+    </script>
+    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    @Scripts.Render("~/Scripts/index.js")
+
+
+
+
+</body>
+</html>
+

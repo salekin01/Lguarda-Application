@@ -1,0 +1,86 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="cont">
+
+    <div class="demo">
+
+        <div class="login">
+            <div style="text-align:center; color: white; margin-top: 10px; margin-bottom: -10px; ">
+                <img src="~/Images/shield_home.png" height="200" style="margin-top:5em;" />
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+
+            <div class="login__form">
+
+                <div class="login__row">
+
+                    <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+
+                        <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+                    </svg>
+
+                    @*<input type="text" class="login__input name" placeholder="Username" />*@
+
+                    @Html.TextBoxFor(u => u.USER_ID, new { placeholder = "Username", @class = "login__input name", @required = "required" })
+                </div>
+
+                <div class="login__row">
+
+                    <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+                        <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+                    </svg>
+
+                    @*<input type="password" class="login__input pass" placeholder="Password" />*@
+
+                    @Html.PasswordFor(u => u.PASSWORD, new { placeholder = "Password", @class = "login__input pass", @required = "required" })
+
+                    @Html.ValidationMessageFor(u => u.PASSWORD)
+                </div>
+
+                <br />
+
+                @*@Html.ValidationSummary(true, "The User ID and password you entered don't match.")*@
+
+                @if (TempData["Error"] != null)
+                {
+                    <p style="font-size:10px; color:white;"> @TempData["Error"].ToString()</p>
+                }
+                @if (ViewData["Error"] != null)
+                {
+                    <p style="font-size:10px; color:white;"> @ViewData["Error"].ToString()</p>
+                }
+
+                <p style="padding-top:3.5em; padding-bottom:2em;">
+                    <i style="color:brown; font-family:Magneto; font-size:16px; font:bold;">
+                        Lguarda
+                    </i>
+
+                    <sub style="color: green; font-family:Cambria; font-size:13px;">
+                        securing apps
+                    </sub>
+                </p>
+
+                <button type="submit" class="login__submit">
+                    Sign in
+                </button>
+
+                <p class="login__signup">
+                    <a href="#" style="text-decoration:none">Privacy Policy</a>
+                    <a href="#" style="text-decoration:none">Terms & Conditions</a>
+                </p>
+
+                <p class="login__signup">&copy; @DateTime.Now.Year- LEADS Corporation Limited</p>
+
+                <br>
+            </div>
+
+        }
+    </div>
+</div>

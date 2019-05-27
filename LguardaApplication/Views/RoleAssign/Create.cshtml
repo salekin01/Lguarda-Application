@@ -1,0 +1,98 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_ROLE_ASSIGN_MAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">Role Assign</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.USER_ID, new { placeholder = "User ID", @id = "user_id", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.USER_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.USER_NM, new { placeholder = "User Name", @id = "user_name", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.USER_NM)
+                            </div>
+                        </div>
+
+                        @*<div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---- Application ----", new { @id = "ddl_Application", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>*@
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-10 form-group" style="overflow: auto; padding-left: 15px; margin-top: 15px;">
+                                <div>
+                                    <table id="grid"></table>
+                                    <div id="pager"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding" style="margin-top: 15px;">
+                            <div class="col-xs-6 form-group ">
+
+                                <button type="submit" name="command" value="Save" class="btn btn-primary" id="btnsubmitForCreateAssignUserRole">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "RoleAssign")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            }
+
+        </div>
+
+    </section>
+}
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+
+<script src="~/Scripts/Custom/RoleAssign.js"></script>
+
+<script>
+    var userid = null;
+</script>

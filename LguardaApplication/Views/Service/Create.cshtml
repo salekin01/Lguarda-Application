@@ -1,0 +1,106 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_SERVICE_MAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">Service Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+
+                                @Html.TextBoxFor(m => m.SERVICE_ID, new { placeholder = "Service ID[Auto]", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SERVICE_ID)
+
+                            </div>
+
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.SERVICE_NM, new { placeholder = "Service Full Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SERVICE_NM)
+
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.SERVICE_SH_NM, new { placeholder = "Service Shr. Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SERVICE_SH_NM)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---- Application ---", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                @*<button type="button" class="btn btn-primary" id="btnreset" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "Service")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>*@
+                                <button type="reset" class="btn btn-primary " id="btnreset" value="Clear">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            }
+
+        </div>
+
+    </section>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnreset').click(function () {
+            $('#SERVICE_NM').val("");
+            $('#SERVICE_SH_NM').val("");
+            $('#APPLICATION_ID').val("");
+            $('.field-validation-error').empty();
+            $('.element').empty();
+            return false;
+        });
+    });
+</script>
+
+

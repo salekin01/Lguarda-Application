@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Web.Mvc" />
+  <xs:complexType name="ArrayOfLg_Sys_Application">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Application" nillable="true" type="tns:Lg_Sys_Application" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Application" nillable="true" type="tns:ArrayOfLg_Sys_Application" />
+  <xs:complexType name="Lg_Sys_Application">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Application" nillable="true" type="tns:Lg_Sys_Application" />
+  <xs:complexType name="ArrayOfLg_Sys_Service">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Service" nillable="true" type="tns:Lg_Sys_Service" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Service" nillable="true" type="tns:ArrayOfLg_Sys_Service" />
+  <xs:complexType name="Lg_Sys_Service">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q1:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SERVICE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SERVICE_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SERVICE_SH_NM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Service" nillable="true" type="tns:Lg_Sys_Service" />
+  <xs:complexType name="ArrayOfLg_Sys_Module">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Module" nillable="true" type="tns:Lg_Sys_Module" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Module" nillable="true" type="tns:ArrayOfLg_Sys_Module" />
+  <xs:complexType name="Lg_Sys_Module">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q2:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MODULE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODULE_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODULE_SH_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SERVICE_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="SERVICE_LIST_FOR_DD" nillable="true" type="q3:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="SERVICE_NM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Module" nillable="true" type="tns:Lg_Sys_Module" />
+  <xs:complexType name="ArrayOfLg_Sys_Function">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Function" nillable="true" type="tns:Lg_Sys_Function" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Function" nillable="true" type="tns:ArrayOfLg_Sys_Function" />
+  <xs:complexType name="Lg_Sys_Function">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q4:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DB_ROLE_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTION_GROUP_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="FUNCTION_GROUP_LIST_FOR_DD" nillable="true" type="q5:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="FUNCTION_GROUP_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTION_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTION_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HO_FUNCTION_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="HO_FUNCTION_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ITEM_TYPE" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="ITEM_TYPE_LIST_FOR_DD" nillable="true" type="q6:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="MAINT_ADD_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="MAINT_ADD_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAINT_AUTH_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="MAINT_AUTH_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAINT_DEL_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="MAINT_DEL_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAINT_EDIT_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="MAINT_EDIT_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAINT_VIEW_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="MAINT_VIEW_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MODULE_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="MODULE_LIST_FOR_DD" nillable="true" type="q7:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="MODULE_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROCESS_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="PROCESS_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_GEN_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="REPORT_GEN_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_PRINT_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="REPORT_PRINT_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_VIEW_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="REPORT_VIEW_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SERVICE_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="SERVICE_LIST_FOR_DD" nillable="true" type="q8:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="SERVICE_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TARGET_PATH" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Function" nillable="true" type="tns:Lg_Sys_Function" />
+  <xs:complexType name="ArrayOfLg_Sys_Role_Function">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Role_Function" nillable="true" type="tns:Lg_Sys_Role_Function" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Role_Function" nillable="true" type="tns:ArrayOfLg_Sys_Role_Function" />
+  <xs:complexType name="Lg_Sys_Role_Function">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALLOW_MAINT_ADD_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_ADD_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_AUTH_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_AUTH_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_DEL_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_DEL_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_EDIT_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_EDIT_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_VIEW_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_MAINT_VIEW_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_PROCESS_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_PROCESS_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_REPORT_GEN_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_REPORT_GEN_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_REPORT_PRINT_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_REPORT_PRINT_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ALLOW_REPORT_VIEW_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="ALLOW_REPORT_VIEW_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q9:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTION_GROUP_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="FUNCTION_GROUP_LIST_FOR_DD" nillable="true" type="q10:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="FUNCTION_GROUP_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTION_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTION_IDs_FOR_IND_ROLE" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="FUNCTION_LIST_FOR_DD" nillable="true" type="q11:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="FUNCTION_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_TYPE" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="ITEM_TYPE_LIST_FOR_DD" nillable="true" type="q12:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="MAKE_BY1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MODULE_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="MODULE_LIST_FOR_DD" nillable="true" type="q13:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="MODULE_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ROLE_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="ROLE_LIST" nillable="true" type="q14:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="ROLE_NM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SERVICE_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="SERVICE_LIST_FOR_DD" nillable="true" type="q15:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="SERVICE_NM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Role_Function" nillable="true" type="tns:Lg_Sys_Role_Function" />
+  <xs:complexType name="Lg_Sys_User_Setup_Profile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACC_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AGENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AREA_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AREA_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTHENTICATION_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTHENTICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRANCH_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRANCH_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CLASSIFICATION_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CLASSIFICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DAY" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMPLOYEE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="END_TIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERS_NAME" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="LIST_AUTHENTICATION_TYPE_FOR_DD" nillable="true" type="q16:ArrayOfSelectListItem" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="LIST_BRANCH_FOR_DD" nillable="true" type="q17:ArrayOfSelectListItem" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="LIST_TWO_FA_TYPE_FOR_DD" nillable="true" type="q18:ArrayOfSelectListItem" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="LIST_USER_AREA_FOR_DD" nillable="true" type="q19:ArrayOfSelectListItem" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="LIST_USER_CLASSIFICATION_FOR_DD" nillable="true" type="q20:ArrayOfSelectListItem" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="LIST_WORKING_HOUR_FOR_DD" nillable="true" type="q21:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="MAIL_ADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MOB_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MONTH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOTHERS_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="START_TIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TERMINAL_IP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TWO_FA_TYPE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TWO_FA_TYPE_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WORKING_HOUR" type="xs:short" />
+      <xs:element minOccurs="0" name="YEAR" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_User_Setup_Profile" nillable="true" type="tns:Lg_Sys_User_Setup_Profile" />
+  <xs:complexType name="Lg_Sys_Role_Assign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q22:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ROLE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ROLE_ID_FOR_IND_USER" nillable="true" type="xs:string" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="ROLE_LIST_FOR_IND_USER" nillable="true" type="q23:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="ROLE_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SL_NO" type="xs:int" />
+      <xs:element minOccurs="0" name="USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Role_Assign" nillable="true" type="tns:Lg_Sys_Role_Assign" />
+  <xs:complexType name="ArrayOfLg_Sys_User_Setup_Profile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_User_Setup_Profile" nillable="true" type="tns:Lg_Sys_User_Setup_Profile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_User_Setup_Profile" nillable="true" type="tns:ArrayOfLg_Sys_User_Setup_Profile" />
+  <xs:complexType name="ArrayOfLg_Sys_Otp_Configuration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Otp_Configuration" nillable="true" type="tns:Lg_Sys_Otp_Configuration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Otp_Configuration" nillable="true" type="tns:ArrayOfLg_Sys_Otp_Configuration" />
+  <xs:complexType name="Lg_Sys_Otp_Configuration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q24:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAIL_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="MAIL_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NO_OF_OTP_DIGIT" nillable="true" type="xs:string" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="OTP_FORMATE_LIST_FOR_DD" nillable="true" type="q25:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="OTP_FORMAT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OTP_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SMS_FLAG" type="xs:int" />
+      <xs:element minOccurs="0" name="SMS_FLAG_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VALIDITY_PERIOD" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Otp_Configuration" nillable="true" type="tns:Lg_Sys_Otp_Configuration" />
+  <xs:complexType name="ArrayOfLg_Sys_Mail_Server_Config">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Mail_Server_Config" nillable="true" type="tns:Lg_Sys_Mail_Server_Config" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Mail_Server_Config" nillable="true" type="tns:ArrayOfLg_Sys_Mail_Server_Config" />
+  <xs:complexType name="Lg_Sys_Mail_Server_Config">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION_ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="APPLICATION_LIST_FOR_DD" nillable="true" type="q26:ArrayOfSelectListItem" />
+      <xs:element minOccurs="0" name="APPLICATION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAIL_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAIL_SENDER_ADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAIL_SENDER_IP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAIL_SENDER_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAIL_SENDER_PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Mail_Server_Config" nillable="true" type="tns:Lg_Sys_Mail_Server_Config" />
+  <xs:complexType name="ArrayOfLg_Sys_Role_Assign">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Role_Assign" nillable="true" type="tns:Lg_Sys_Role_Assign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Role_Assign" nillable="true" type="tns:ArrayOfLg_Sys_Role_Assign" />
+  <xs:complexType name="Lg_Sys_Password_Policy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ERROR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FAILED_LOGIN_ATTEMT" type="xs:short" />
+      <xs:element minOccurs="0" name="MAKE_BY1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_BY2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MIN_CAPS_LETTER" type="xs:short" />
+      <xs:element minOccurs="0" name="MIN_CONS_USE_PASS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MIN_NUMERIC_CHAR" type="xs:short" />
+      <xs:element minOccurs="0" name="MIN_SMALL_LETTER" type="xs:short" />
+      <xs:element minOccurs="0" name="NUMERIC_CHAR_MIN" type="xs:short" />
+      <xs:element minOccurs="0" name="PASS_CHANGED_EXPIRY" type="xs:int" />
+      <xs:element minOccurs="0" name="PASS_CHANGED_EXPIRY_B" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PASS_EXP_ALERT" type="xs:short" />
+      <xs:element minOccurs="0" name="PASS_EXP_PERIOD" type="xs:short" />
+      <xs:element minOccurs="0" name="PASS_HIS_PERIOD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASS_MAX_LENGTH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASS_MIN_LENGTH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASS_REPEAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASS_REUSE_MAX" type="xs:short" />
+      <xs:element minOccurs="0" name="SL_NO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lg_Sys_Password_Policy" nillable="true" type="tns:Lg_Sys_Password_Policy" />
+  <xs:complexType name="ArrayOfLg_Sys_Password_Policy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lg_Sys_Password_Policy" nillable="true" type="tns:Lg_Sys_Password_Policy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLg_Sys_Password_Policy" nillable="true" type="tns:ArrayOfLg_Sys_Password_Policy" />
+</xs:schema>

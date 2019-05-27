@@ -1,0 +1,82 @@
+﻿
+
+@model LgurdaApp.Model.ControllerModels.LG_SYS_CLD_TYPE_MAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Calendar Type Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+
+                    @Html.ValidationSummary(true)
+
+                    <div class="scrollBodyDiv LeftPadding">
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.CLD_TYPE_ID, "Calendar Type ID", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.CLD_TYPE_ID, new { @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CLD_TYPE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.CLD_TYPE_NM, "Calendar Type Name", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.CLD_TYPE_NM, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CLD_TYPE_NM)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.DEFAULT_CLD, "Set as Default", new { @class = "control-label col-md-3" })
+                                @Html.EditorFor(model => model.DEFAULT_CLD_B, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DEFAULT_CLD_B)
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.BASED_ON_CLD, "Based on Calendar", new { @class = "control-label col-md-3" })
+                             
+                                    @Html.DropDownListFor(model => model.BASED_ON_CLD, Model.LIST_OF_ALL_CALENDAR, "-------Based On Calendar-------", new { @id = "ddl_Calendar", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.BASED_ON_CLD)
+                                </div>
+                           
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group ">
+
+                                <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <p class="MsgSection"> @TempData["Error"].ToString()</p>
+            }
+            @if (TempData["Success"] != null)
+            {
+                <p class="element"> @TempData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}

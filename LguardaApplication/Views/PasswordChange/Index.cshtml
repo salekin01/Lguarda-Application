@@ -1,0 +1,169 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_CRD_PASSWORD_CHANGE_MAP
+
+@{
+    ViewBag.Title = "PasswordChange";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div class="container scrollMainDiv">
+                        <div class="row">
+                            <h4 class="PageTitle">Password Change</h4>
+                            @*<a href="@Url.Action(" home />Index")">
+                                <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>*@
+                        </div>
+                        @Html.ValidationSummary(true)
+
+                        <div class="scrollBodyDiv LeftPadding ">
+                            <div class="row LeftPadding">
+                                @Html.HiddenFor(model => model.USER_ID, new { placeholder = "User ID", @class = "form-control", @Value = "User_ID--" + @Session["currentUserID"], @readonly = "readonly" })
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.PasswordFor(model => model.CURRENT_PASSWORD, new { placeholder = "Current Password", @class = "form-control", id = "currPass" })
+                                    @Html.ValidationMessageFor(model => model.CURRENT_PASSWORD)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-4 form-group ">
+                                    @Html.PasswordFor(model => model.NEW_PASSWORD, new { placeholder = "New Password", @class = "form-control", id = "newPass" })
+                                    @Html.ValidationMessageFor(model => model.NEW_PASSWORD)
+                                </div>
+                                <div id="progressbar" class="col-xs-6 form-group ">
+                                    <div id="stat"> <div id="msg"></div> </div>
+                                </div>
+                            </div>
+
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.PasswordFor(model => model.CONFIRM_NEW_PASSWORD, new { placeholder = "Confirm New Password", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CONFIRM_NEW_PASSWORD)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-2 form-group ">
+
+                                    <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-floppy-disk"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "PasswordChange")'">
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if (ViewData["Error"] != null)
+                        {
+                            <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                        }
+                        @if (ViewData["Success"] != null)
+                        {
+                            <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+@if (ViewData["Result"] != null && (int)@ViewData["Result"] == 1)
+{
+    <meta http-equiv="Refresh" content="4;URL=@(Url.Action("Login", "Login"))">
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#progressbar').hide();
+    });
+
+    $(function () {
+        var userId = $('#u_id').val();
+
+        // $('#newPass').on('input', function (e) {
+        $('#newPass').bind('input', function (e) {
+            e.preventDefault();
+            $('#progressbar').hide();
+
+            var pass = $('#newPass').val();
+            var statwidth;
+            var statcolor;
+            var elem = document.getElementById('stat');
+            var msg = document.getElementById('msg');
+
+            if (userId != "") {
+                $.ajax({
+                    url: '@Url.Action("PasswordStrengthCheck", "PasswordChange")',
+                    datatype: "text",
+                    data: { pPASSWORD: pass },
+                    type: 'GET',
+                    cache: false,
+                    success: function (data) {
+                        if (data == "Very Weak")
+                        { statwidth = 20; statcolor = "red"; }
+                        else if (data == "Weak")
+                        { statwidth = 40; statcolor = "red"; }
+                        else if (data == "Medium")
+                        { statwidth = 60; statcolor = "yellow"; }
+                        else if (data == "Strong")
+                        { statwidth = 80; statcolor = "green"; }
+                        else if (data == "Very Strong")
+                        { statwidth = 100; statcolor = "green"; }
+                        else
+                        { statwidth = 0; }
+                        if (pass != "" && data.length < 20) {
+                            $('#progressbar').show();
+                            $('#msg').text(data);
+                            msg.style.color = statcolor;
+                            elem.style.width = statwidth + "%";
+                            elem.style.background = statcolor;
+                        }
+                        else {
+                            $('#progressbar').hide();
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>
+
+<style>
+    #progressbar {
+        background-color: #cce6ff;
+        width: 30%;
+        border-radius: 7px; /* (height of inner div) / 2 + padding */
+        padding: 3px;
+    }
+
+        #progressbar > div {
+            background-color: white; /* Adjust or Change with Score */
+            width: 70%; /* Adjust with JavaScript */
+            height: 5px;
+            border-radius: 10px;
+        }
+
+    input[type=submit] {
+        width: 100px;
+        padding: 1px;
+    }
+
+    input[type=button] {
+        width: 100px;
+        padding: 1px;
+    }
+</style>

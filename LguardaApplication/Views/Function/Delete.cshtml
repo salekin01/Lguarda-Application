@@ -1,0 +1,250 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_FUNCTION_MAP
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="container scrollMainDiv">
+
+
+                <div class="row">
+                    <h4 class="PageTitle">Function Setup</h4>
+                    <a href="@Url.Action("Index")">
+                        <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class=" container scrollBodyDiv LeftPadding">
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Function ID")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FUNCTION_ID)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Function Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FUNCTION_NM)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Application Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.APPLICATION_NAME)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Service Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SERVICE_NM)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Module Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MODULE_NM)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Item Type")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ITEM_TYPE)
+                        </dd>
+                    </dl>
+
+
+
+                    <div class="LeftPadding" style="float:left; ">
+                        @Html.Label("Form Options")
+                    </div>
+                    <div class="row LeftPadding" style="float: left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_CRT_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Create")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_EDT_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Edit")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_DEL_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Delete")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_DTL_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Details")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_INDX_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Index")
+                        </div>
+                    </div>
+
+
+
+
+                    <div style="clear:left;"></div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.ENABLED_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Menu Enable")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.PROCESS_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("FT")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_OTP_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("OTP")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_2FA_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("2FA")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_2FA_HARD_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Software")
+                        </div>
+                    </div>
+                    <div class="row " style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_2FA_SOFT_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Hardware")
+                        </div>
+                    </div>
+                    <div class="row " style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.MAINT_AUTH_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Authorize")
+                        </div>
+                    </div>
+                    <dl class="row LeftPadding" style="float:left;">
+                        <dt class="text-primary" style="float:left;">
+                            @Html.DisplayName("AUTH LEVEL :  ")
+                        </dt>
+                        <dd class="row LeftPadding" style="float:left;">
+                            @Html.DisplayFor(model => model.AUTH_LEVEL)
+                        </dd>
+                    </dl>
+                    @*<div class="row" style="float:left;">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.AUTH_LEVEL, new { placeholder = "Auth Level", id = "Auth_Level", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.AUTH_LEVEL)
+                            </div>
+                        </div>*@
+                    <div style="clear:left;"></div>
+
+
+
+
+                    <div class="LeftPadding" style="float:left; ">
+                        @Html.Label("Report Options")
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.REPORT_VIEW_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("View")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.REPORT_PRINT_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Print")
+                        </div>
+                    </div>
+                    <div class="row LeftPadding" style="float:left;">
+                        <div class="col-xs-6 form-group ">
+                            @Html.CheckBoxFor(model => model.REPORT_GEN_FLAG_B, new { @class = "row", @disabled = "disabled" })
+                            @Html.Label("Generate")
+                        </div>
+                    </div>
+
+
+                    <div style="clear:left;"></div>
+
+
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Auth Status ID")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AUTH_STATUS_ID)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Last Action")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LAST_ACTION)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Last Update Date")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LAST_UPDATE_DT)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("Make Date")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MAKE_DT)
+                        </dd>
+                    </dl>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" name="command" value="Delete" class="btn btn-primary btn-sm" />
+                        </div>
+                    }
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element"> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}

@@ -1,0 +1,393 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm("Create", "UserProfileSetup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">User profile Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        <div class="row LeftPadding">
+
+                            <div class="col-xs-6 form-group ">
+                                <div class="form-group">
+                                    <br />
+                                </div>
+                                <div class="form-group">
+                                    <br />
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.USER_CLASSIFICATION_ID, Model.LIST_USER_CLASSIFICATION_FOR_DD, " --Select User Classification-- ", new { @id = "ddl_User_Classification", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_CLASSIFICATION_ID)
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.USER_AREA_ID, Model.LIST_USER_AREA_FOR_DD, "---Select User Area--- ", new { @id = "ddl_User_Area", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_AREA_ID)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.USER_ID, new { placeholder = "User ID", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_ID)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.USER_NAME, new { placeholder = "User Name", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_NAME)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.USER_AREA_ID_VALUE, new { placeholder = "User area wise ID", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_AREA_ID_VALUE)
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(m => m.BRANCH_ID, Model.LIST_BRANCH_FOR_DD, "Branch Name", new { @id = "ddl_Branch", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.BRANCH_ID)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.MAIL_ADDRESS, new { placeholder = "Mail Address.", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MAIL_ADDRESS)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.MOB_NO, new { placeholder = "Mobile No", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MOB_NO)
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.DropDownListFor(m => m.FILE_TYPE, Model.LIST_USER_FILE_TYPE, "File Type", new { @id = "USER_FILE_TYPE", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FILE_TYPE)
+                                </div>
+                                <div class="form-group" >
+                                    <div id="uploaders">
+                                        <input type="file" id="fileToUpload" name="fileUpload" multiple="multiple" style="float: left;"  onchange="example()"/>
+                                        <br />
+                                        <span id="spnFile" style="float: left; color: #FF0000"></span>
+                                        @Html.ValidationMessage("File")
+                                        @Html.Hidden("hdnFileUpload")
+                                    </div>
+                                    @*<div >
+                                        <button class="btn btn-primary" id="btnAddIssue" type="submit">Submit</button>
+                                    </div>*@
+                                    
+                                    <br />
+                                    
+                                    <div class="control-section" style="padding: 0px;">
+                                        <div id="selectedFiles"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div id="selectedFiles"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 form-group ">
+                                <div class="form-group">
+                                                                       
+                                    <img id="profileImage" src="https://i.stack.imgur.com/YQu5k.png" alt="your image" width="138" height="137" />
+                                    <input id="ppUpload" type="file" name="profile_photo" placeholder="Photo" required="" onchange="readURL(this);" />
+                                    
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.DropDownListFor(m => m.day, Enumerable.Range(1, 31).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Day")
+                                    @Html.DropDownListFor(x => x.month, Model.Months, "Month")
+                                    @Html.DropDownListFor(m => m.year, Enumerable.Range(1960, DateTime.Now.Year - 1960 + 1).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Year")
+                                    @Html.ValidationMessageFor(model => model.day)
+                                    @Html.ValidationMessageFor(model => model.month)
+                                    @Html.ValidationMessageFor(model => model.year)
+                                    <span style="font-size: 15px"> (Date Of Birth)</span>
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.TERMINAL_IP, new { placeholder = "Terminal IP", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TERMINAL_IP)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.USER_DESCRIPTION, new { placeholder = "User Description", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_DESCRIPTION)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.FATHERS_NAME, new { placeholder = "Father Name.", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FATHERS_NAME)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.MOTHERS_NAME, new { placeholder = "Mother Name.", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MOTHERS_NAME)
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.ACC_NO, new { placeholder = "Account No.", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ACC_NO)
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(m => m.AUTHENTICATION_ID, Model.LIST_AUTHENTICATION_TYPE_FOR_DD, "Authentication Type", new { @id = "ddl_Auth_type", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AUTHENTICATION_ID)
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(m => m.WORKING_HOUR, Model.LIST_WORKING_HOUR_FOR_DD, "Working Hour", new { @id = "ddl_Work_Hour_Type", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.WORKING_HOUR)
+                                </div>
+                               
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group " style="display: none;" id="StartTime">
+
+
+                                @Html.DropDownListFor(m => m.HR, Enumerable.Range(1, 24).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Hour")
+                                @Html.DropDownListFor(m => m.MIN, Enumerable.Range(1, 59).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Min")
+                                @*@Html.DropDownList("AM/PM", ViewData["AMPM"] as List<SelectListItem>)*@
+                                @Html.DropDownList("AM/PM", new List<SelectListItem>
+                                 {
+                                   new SelectListItem{ Text="AM", Value = "1" },
+                                   new SelectListItem{ Text="PM", Value = "2" },
+
+                                 })
+
+                                <span style="font-size: 15px"> (Start Time)</span>
+
+                            </div>
+
+
+                            <div class="col-xs-6 form-group " style="display: none;" id="EndTime">
+
+                                @Html.DropDownListFor(m => m.E_HR, Enumerable.Range(1, 24).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Hour")
+                                @Html.DropDownListFor(m => m.E_MIN, Enumerable.Range(1, 59).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Min")
+                                @*@Html.DropDownList("AM/PM", ViewData["AMPM"] as List<SelectListItem>)*@
+
+                                @Html.DropDownList("AM/PM", new List<SelectListItem>
+                                 {
+                                   new SelectListItem{ Text="AM", Value = "1" },
+                                   new SelectListItem{ Text="PM", Value = "2" },
+
+                                 })
+                                <span style="font-size: 15px"> (End Time)</span>
+
+                            </div>
+                        </div>
+
+
+                        @*<div class="row LeftPadding">
+                                <div class="col-xs-6 form-group " style="display: none;" id="StartTime">
+                                    @Html.TextBoxFor(m => m.START_TIME, new { placeholder = "Start Time", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.START_TIME)
+                                </div>
+                                <div class="col-xs-6 form-group " style="display: none;" id="EndTime">
+                                    @Html.TextBoxFor(m => m.END_TIME, new { placeholder = "End Time", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.END_TIME)
+                                </div>
+                            </div>*@
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+
+                            </div>
+                            <div class="col-xs-6 form-group " id="Two_FA_Type" style="display: none;">
+                                @Html.DropDownListFor(model => model.TWO_FA_TYPE_ID, Model.LIST_TWO_FA_TYPE_FOR_DD, "2FA Type", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TWO_FA_TYPE_NAME)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+
+                                <button type="submit" name="command" value="Save" class="btn btn-primary {background-color: #8064A2 !important};">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "UserProfileSetup")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+
+    </section>
+
+}
+
+<script>
+
+    var appname = (function (p) {
+        var port = $(location).attr('port');
+        if ($.isNumeric(port)) {
+            var s = p.split("/").reverse();
+            var length = s.length - 1;
+            //s.splice(0, 2);
+            s.splice(0, length);
+            //alert("port");
+            return s.reverse().join("/");
+        }
+        else {
+            var pathname = $(location).attr('pathname');
+            var s = p.split("/");
+            var app_name1 = s[1];
+            var app_name = "/" + app_name1;
+            //alert("without port");
+            return app_name;
+        }
+    })(location.pathname);
+
+    $(document).ready(function () {
+        var User_Work_Hour_id = $('#ddl_Work_Hour_Type').val();
+        if (User_Work_Hour_id == 1) {
+            $('#StartTime').show();
+            $('#EndTime').show();
+        }
+        else {
+            $('#StartTime').hide();
+            $('#EndTime').hide();
+        }
+        
+        $("#ddl_User_Area").empty();
+        $('#ddl_User_Area').append('<option value="0">---------- Select ----------</option>');
+        var host = $(location).attr('host');
+        var protocol = window.location.protocol;
+        $.ajax({
+            type: "GET",
+            url: protocol + "//" + host + appname + "/Common/DDLUserAreaLoadbyUserClassification",
+            //url: "http://" + host + "/LguardaApp/Common/DDLUserAreaLoadbyUserClassification",
+            data: { classification_id: $('#ddl_User_Classification').val() },
+            datatype: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                $.each(data, function (i, element) {
+                    $('#ddl_User_Area').append($('<option></option>').val(element.Value).html(element.Text));
+                });
+            }
+        });
+
+
+        var Auth_type = $('#ddl_Auth_type').val();
+        if (Auth_type == 2) {
+            $('#Two_FA_Type').show();
+        }
+        else {
+            $('#Two_FA_Type').hide();
+        }
+    });
+
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profileImage')
+                    .attr('src', e.target.result)
+                    .width(138)
+                    .height(137);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+   
+</script>
+
+<script>
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var files;
+    var storedFiles = [];
+    var upc = 0;
+
+
+
+    function example () {
+        //debugger;
+
+        $(":file").attr('title', '  ');
+        var $loading = $('#loadingDiv').hide();
+
+        $("input[id^='fileToUpload']").change(function (e) {
+            doReCreate(e);
+        });
+
+        selDiv = $("#selectedFiles");
+    }
+
+
+    function doReCreate(e) {
+
+        upc = upc + 1;
+        handleFileSelect(e);
+       
+
+        $("input[id^='fileToUpload']").hide();
+
+            $('<input>').attr({
+                type: 'file',
+                multiple: 'multiple',
+                id: 'fileToUpload' + upc,
+                class: 'fUpload',
+                name: 'fileUpload',
+                style: 'float: left',
+                title: '  ',
+                onchange: "doReCreate(event)"
+
+            }).appendTo('#uploaders');
+        
+
+    }
+
+
+    function handleFileSelect(e) {
+      //  alert("ok");
+       //  debugger;
+        //selDiv.innerHTML = ""; storedFiles = [];
+        selDiv = document.querySelector("#selectedFiles");
+
+        if (!e.target.files) return;
+
+        //selDiv.innerHTML = "";
+        files = e.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            //if (i == 0) { selDiv.innerHTML = ""; storedFiles = []; }
+            var f = files[i];
+            selDiv.innerHTML += "<div>" + f.name + "<a onclick='removeAtt(this)'> X </a></div>";
+            storedFiles.push(f.name);
+        }
+        $('#@Html.IdFor(i => i.FilesToBeUploaded)').val(storedFiles);
+    }
+
+    function removeAtt(t) {
+        var serEle = $(t).parent().text().slice(0, -3);
+        var index = storedFiles.indexOf(serEle);
+        if (index !== -1) {
+            storedFiles.splice(index, 1);
+        }
+        $(t).parent().remove();
+
+        $('#@Html.IdFor(i => i.FilesToBeUploaded)').val(storedFiles);
+
+    }
+</script>
+

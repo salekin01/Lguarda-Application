@@ -1,0 +1,87 @@
+﻿@model Model.EntityModel.LGModel.LG_AA_NFT_AUTH_LOG_MAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@section featured
+{*@
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="container scrollMainDiv">
+
+
+                <div class="row">
+                    <h4 class="PageTitle">Authorization Details</h4>
+                    <a href="@Url.Action("Index")">
+                        <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class=" container scrollBodyDiv LeftPadding">
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("FUNCTION ID")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FUNCTION_ID)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("TABLE NAME")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TABLE_NAME)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("AUTH STATUS ID")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AUTH_STATUS_ID)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("MAKE BY")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MAKE_BY)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("MAKE DT")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MAKE_DT)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("AUTH LEVEL MAX")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AUTH_LEVEL_MAX)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayName("AUTH LEVEL PENDING")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AUTH_LEVEL_PENDING)
+                        </dd>
+                    </dl>
+                </div>
+
+                @if (ViewData["Error"] != null)
+                {
+                    <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+                }
+            </div>
+        </div>
+    </section>
+@*}*@

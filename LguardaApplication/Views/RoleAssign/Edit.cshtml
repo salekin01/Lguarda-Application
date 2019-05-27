@@ -1,0 +1,116 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_ROLE_ASSIGN_MAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Role Assign</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+
+                    <div class="scrollBodyDiv LeftPadding">
+                        <dl class=" container dl-horizontal LeftPadding" style="margin-top: 5px;">
+                            <dt class="text-primary" style="text-align:left">
+                                @Html.DisplayName("User ID")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.USER_ID)
+                                @Html.HiddenFor(m => m.USER_ID)
+                            </dd>
+                        </dl>
+                        <dl class=" container dl-horizontal LeftPadding">
+                            <dt class="text-primary" style="text-align:left">
+                                @Html.DisplayName("User Name")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.USER_NM)
+                                @Html.HiddenFor(model => model.USER_NM)
+                            </dd>
+                        </dl>
+                        @*<dl class=" container dl-horizontal LeftPadding">
+                                <dt class="text-primary" style="text-align:left">
+                                    @Html.DisplayName("Application Id")
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.APPLICATION_ID)
+                                    @Html.HiddenFor(model => model.APPLICATION_ID)
+                                </dd>
+                            </dl>
+                            <dl class=" container dl-horizontal LeftPadding">
+                                <dt class="text-primary" style="text-align:left">
+                                    @Html.DisplayName("Application Name")
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.APPLICATION_NAME)
+                                    @Html.HiddenFor(model => model.APPLICATION_NAME)
+                                </dd>
+                            </dl>*@
+
+                        <div class="row LeftPadding ">
+                            <div style="margin-top: 15px; " class="LeftPadding">
+                                <div>
+                                    <table id="gridEdit"></table>
+                                    <div id="pager"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding" style="margin-top: 15px;">
+                            <div class="col-xs-2 form-group ">
+                                @*<input type="submit" name="command" value="Update" class="btn btn-primary btn-sm" id="btnsubmitForEditAssignUserRole" />*@
+                                <button type="submit" name="command" value="Update" class="btn btn-primary" id="btnsubmitForEditAssignUserRole">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" onclick="location.href='@Url.Action("Edit", "RoleAssign", new { id = Model.USER_ID })'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+<script>
+    @*var appid = ('@Model.APPLICATION_ID');*@
+    var userid = ('@Model.USER_ID');
+</script>
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+
+<script src="~/Scripts/Custom/RoleAssign.js"></script>
+
+
+
+
+
+

@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" />
+  <xs:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LgurdaService.Model" />
+  <xs:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Web.Mvc" />
+  <xs:element name="GetApplications">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetApplicationsResult" nillable="true" type="q1:ArrayOfLg_Sys_Application" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Application" nillable="true" type="q2:Lg_Sys_Application" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddApplicationResult" nillable="true" type="q3:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Application" nillable="true" type="q4:Lg_Sys_Application" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateApplicationResult" nillable="true" type="q5:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServices">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetServicesResult" nillable="true" type="q6:ArrayOfLg_Sys_Service" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Service" nillable="true" type="q7:Lg_Sys_Service" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddServiceResult" nillable="true" type="q8:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Service" nillable="true" type="q9:Lg_Sys_Service" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateServiceResult" nillable="true" type="q10:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModules">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetModulesResult" nillable="true" type="q11:ArrayOfLg_Sys_Module" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Module" nillable="true" type="q12:Lg_Sys_Module" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddModuleResult" nillable="true" type="q13:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateModule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Module" nillable="true" type="q14:Lg_Sys_Module" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateModuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateModuleResult" nillable="true" type="q15:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetFunctionsResult" nillable="true" type="q16:ArrayOfLg_Sys_Function" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFunction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Function" nillable="true" type="q17:Lg_Sys_Function" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFunctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddFunctionResult" nillable="true" type="q18:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFunction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Function" nillable="true" type="q19:Lg_Sys_Function" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFunctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateFunctionResult" nillable="true" type="q20:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetRolesResult" nillable="true" type="q21:ArrayOfLg_Sys_Role_Function" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Role_Function" nillable="true" type="q22:Lg_Sys_Role_Function" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddRoleResult" nillable="true" type="q23:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Role_Function" nillable="true" type="q24:Lg_Sys_Role_Function" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateRoleResult" nillable="true" type="q25:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionsByRoleID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionsByRoleIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFunctionsByRoleIDResult" nillable="true" type="q26:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSetupInfoByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="puser_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSetupInfoByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetUserSetupInfoByUserIdResult" nillable="true" type="q27:Lg_Sys_User_Setup_Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleAssignInfoByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="puser_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleAssignInfoByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetRoleAssignInfoByUserIdResult" nillable="true" type="q28:Lg_Sys_Role_Assign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetApplicationForDDResult" nillable="true" type="q29:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetServiceForDDResult" nillable="true" type="q30:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceByAppIdForDD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceByAppIdForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetServiceByAppIdForDDResult" nillable="true" type="q31:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModuleByServiceIdForDD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModuleByServiceIdForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetModuleByServiceIdForDDResult" nillable="true" type="q32:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionByModuleIdForDD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionByModuleIdForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetFunctionByModuleIdForDDResult" nillable="true" type="q33:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionByModuleIdAndItemtypeForDD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="module_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="item_type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionByModuleIdAndItemtypeForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetFunctionByModuleIdAndItemtypeForDDResult" nillable="true" type="q34:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionGroupForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFunctionGroupForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetFunctionGroupForDDResult" nillable="true" type="q35:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemtypeForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemtypeForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetItemtypeForDDResult" nillable="true" type="q36:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserClassificationForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserClassificationForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetUserClassificationForDDResult" nillable="true" type="q37:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAreaIdForDD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAreaIdForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetUserAreaIdForDDResult" nillable="true" type="q38:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserAreaForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserAreaForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetAllUserAreaForDDResult" nillable="true" type="q39:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranchForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranchForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetBranchForDDResult" nillable="true" type="q40:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthenticationTypeForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthenticationTypeForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetAuthenticationTypeForDDResult" nillable="true" type="q41:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkHourTypeForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkHourTypeForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetWorkHourTypeForDDResult" nillable="true" type="q42:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTwoFAtypeForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTwoFAtypeForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetTwoFAtypeForDDResult" nillable="true" type="q43:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOTPFormatForDD">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOTPFormatForDDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetOTPFormatForDDResult" nillable="true" type="q44:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserSetupInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserSetupInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetAllUserSetupInfoResult" nillable="true" type="q45:ArrayOfLg_Sys_User_Setup_Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_User_Setup_Profile" nillable="true" type="q46:Lg_Sys_User_Setup_Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddUserResult" nillable="true" type="q47:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSetupDetails">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSetupDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetUserSetupDetailsResult" nillable="true" type="q48:ArrayOfLg_Sys_User_Setup_Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOtpConfiguations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOtpConfiguationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetOtpConfiguationsResult" nillable="true" type="q49:ArrayOfLg_Sys_Otp_Configuration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOtpConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Otp_Configuration" nillable="true" type="q50:Lg_Sys_Otp_Configuration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOtpConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddOtpConfigurationResult" nillable="true" type="q51:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOtpConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Otp_Configuration" nillable="true" type="q52:Lg_Sys_Otp_Configuration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOtpConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateOtpConfigurationResult" nillable="true" type="q53:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="session_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="terminal_ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="function_type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="from_branch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="from_ac_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="to_branch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="to_ac_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bill_id_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trans_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="card_no" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenerateTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="session_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="terminal_ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="function_type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="from_branch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="from_ac_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="to_branch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="to_ac_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bill_id_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trans_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="card_no" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerifyTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="puser_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcust_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pgroup_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcell_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pemail_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="preg_dt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="psec_cell_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterUserResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="puser_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcust_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pgroup_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcell_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pemail_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="preg_dt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="psec_cell_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMailServerConfigs">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMailServerConfigsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetMailServerConfigsResult" nillable="true" type="q54:ArrayOfLg_Sys_Mail_Server_Config" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMailServerConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Mail_Server_Config" nillable="true" type="q55:Lg_Sys_Mail_Server_Config" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMailServerConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddMailServerConfigResult" nillable="true" type="q56:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMailServerConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Mail_Server_Config" nillable="true" type="q57:Lg_Sys_Mail_Server_Config" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMailServerConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateMailServerConfigResult" nillable="true" type="q58:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleAssign">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleAssignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetRoleAssignResult" nillable="true" type="q59:ArrayOfLg_Sys_Role_Assign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoleAssign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Role_Assign" nillable="true" type="q60:Lg_Sys_Role_Assign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoleAssignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddRoleAssignResult" nillable="true" type="q61:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRolesByApplicationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="application_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRolesByApplicationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/System.Web.Mvc" minOccurs="0" name="GetRolesByApplicationIDResult" nillable="true" type="q62:ArrayOfSelectListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRolesByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRolesByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetRolesByUserIDResult" nillable="true" type="q63:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAssign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Role_Assign" nillable="true" type="q64:Lg_Sys_Role_Assign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAssignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdateRoleAssignResult" nillable="true" type="q65:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyUserAndPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyUserAndPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerifyUserAndPasswordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPasswordPolicy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Password_Policy" nillable="true" type="q66:Lg_Sys_Password_Policy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPasswordPolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="AddPasswordPolicyResult" nillable="true" type="q67:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPasswordPolicy">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPasswordPolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="GetPasswordPolicyResult" nillable="true" type="q68:ArrayOfLg_Sys_Password_Policy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordPolicy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" minOccurs="0" name="pLg_Sys_Password_Policy" nillable="true" type="q69:Lg_Sys_Password_Policy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordPolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/LgurdaService.Model" minOccurs="0" name="UpdatePasswordPolicyResult" nillable="true" type="q70:Bool_Check" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetString">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBool">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBoolResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PostStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

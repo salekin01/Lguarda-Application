@@ -1,0 +1,195 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="container scrollMainDiv">
+                <div class="form-horizontal">
+                    <h4 class="PageTitle">User profile Setup</h4>
+                    <a href="@Url.Action("Index")">
+                        <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class="container scrollBodyDiv LeftPadding">
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary">
+                            @Html.DisplayNameFor(model => model.USER_NAME)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.USER_ID)
+                        </dd>
+
+
+
+                        <dt class="text-primary">
+                            User Id
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.USER_ID)
+                        </dd>
+
+                        <dt class="text-primary">
+                            Classification
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CLASSIFICATION_NAME)
+                        </dd>
+
+                        <dt class="text-primary">
+                            Area
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AREA_NAME)
+                        </dd>
+
+                        <dt class="text-primary">
+                            User area wise ID
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.USER_AREA_ID_VALUE)
+                        </dd>
+
+                        <dt class="text-primary">
+                            User Name
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.USER_NAME)
+                        </dd>
+
+                        <dt class="text-primary">
+                            User Description
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.USER_DESCRIPTION)
+                        </dd>
+
+                        
+
+                        @*@if (Model.EMPLOYEE_ID != null)
+                        {
+                            <dt class="text-primary">
+                                Employee Id
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.EMPLOYEE_ID)
+                            </dd>
+                        }
+
+                        @if (Model.CUSTOMER_ID != null)
+                        {
+                            <dt class="text-primary">
+                                Customer Id
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CUSTOMER_ID)
+                            </dd>
+                        }
+
+                        @if (Model.AGENT_ID != null)
+                        {
+                            <dt class="text-primary">
+                                Agent Id
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.AGENT_ID)
+                            </dd>
+                        }*@
+                        <dt class="text-primary">
+                            Branch
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BRANCH_ID)
+                        </dd>
+
+                        <dt class="text-primary">
+                            Acc No.
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ACC_NO)
+                        </dd>
+                        <dt class="text-primary">
+                            Father's Name
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FATHERS_NAME)
+                        </dd>
+                        <dt class="text-primary">
+                            Mother's Name
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MOTHERS_NAME)
+                        </dd>
+                        <dt class="text-primary">
+                            D.O.B
+                        </dt>
+                        <dd>
+                            @string.Format("{0:dd/MM/yyyy}", Convert.ToDateTime(Html.DisplayFor(model => model.DOB).ToString()))
+                        </dd>
+                        <dt class="text-primary">
+                            Mail Address
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MAIL_ADDRESS)
+                        </dd>
+                        <dt class="text-primary">
+                            Mob No
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MOB_NO)
+                        </dd>
+                        <dt class="text-primary">
+                            Authentication
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AUTHENTICATION_NAME)
+                        </dd>
+                        <dt class="text-primary">
+                            Terminal IP
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TERMINAL_IP)
+                        </dd>
+
+                        @if (Model.START_TIME != null)
+                        {
+                            <dt class="text-primary">
+                                Start Time
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.START_TIME)
+                            </dd>
+                        }
+
+
+                        @if (Model.END_TIME != null)
+                        {
+                            <dt class="text-primary">
+                                End Time
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.END_TIME)
+                            </dd>
+                        }
+                    </dl>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+}
+
+
+
+
+
+

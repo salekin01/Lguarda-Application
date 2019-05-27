@@ -1,0 +1,253 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_FILE_UPLOAD_MAP
+
+@{
+    ViewBag.Title = "FileUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm("Index", "UserFileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div class="container scrollMainDiv">
+                        <div class="row">
+                            <h4 class="PageTitle">User File Upload</h4>
+                        </div>
+                        @Html.ValidationSummary(true)
+
+
+                        <div class="scrollBodyDiv LeftPadding ">
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @*@Html.DropDownListFor(model => model.USER_ID, Model.LIST_ALL_USER_FOR_DD , " --Select User-- ", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.USER_ID)*@
+                                    @Html.TextBoxFor(m => m.USER_ID, new { placeholder = "User ID", @id = "user_id", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_ID)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(m => m.USER_NAME, new { placeholder = "User Name", @readonly = "readonly", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_NAME)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.DropDownListFor(model => model.FILE_TYPE, ViewData["FileTypeList"] as List<SelectListItem>, "--Select File Type--", new { @id = "ddl_FileUploadType", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.USER_TYPE)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group" id="browse_div">
+                                    @*@Html.LabelFor(model => model.File)*@
+                                    @*<input type="file" name="@Html.NameFor(model => model.File)" id="@Html.IdFor(model => model.File)" />*@
+                                    <input type="file" accept="*" @*onchange="loadFile(event)"*@ name="@Html.NameFor(model => model.File)" id="@Html.IdFor(model => model.File)"> <img id="output" />
+                                    @Html.ValidationMessageFor(model => model.File)
+                                </div>
+
+                            </div>
+
+                            @*<div class="row LeftPadding">
+                                <div class="col-xs-6 form-group" id="ThumbPic_div">
+                                    <button type="button" id="btnEnroll" value="Enroll" class="btn btn-primary" >Enroll</button>
+                                    <button type="submit" name="command" value="Show" class="btn btn-primary" >Show</button>*@
+
+                                    @*<button type="button" id="btnStop" value="Stop" class="btn btn-primary" >Stop</button>*@
+                                    @*<button type="submit" name="command" value="Put your thumb" class="btn btn-primary" >Put your thumb</button>
+                                    <button type="submit" name="command" value="Verify" class="btn btn-primary" >Verify</button>*@
+
+                                    @*<div style="margin-top: 15px;">
+                                        <table>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <img id="thumbpic_id" height="200px" width="150px" src="~/Images/thumbpic/thumbpic.Bmp" />
+                                                </td>
+                                                <td>
+                                                    @if (ViewData["test"] != null)
+                                                    {<p> @ViewData["test"].ToString()</p>}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group ">
+
+                                <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "UserFileUpload")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element"> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    </section>
+}
+
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+
+<script src="~/Scripts/jquery-2.1.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+@*<script src="~/Scripts/Custom/UserFileUpload.js"></script>*@
+
+
+<script>
+
+    var appname = (function (p) {
+        var port = $(location).attr('port');
+        if ($.isNumeric(port)) {
+            var s = p.split("/").reverse();
+            var length = s.length - 1;
+            //s.splice(0, 2);
+            s.splice(0, length);
+            //alert("port");
+            return s.reverse().join("/");
+        }
+        else {
+            var pathname = $(location).attr('pathname');
+            var s = p.split("/");
+            var app_name1 = s[1];
+            var app_name = "/" + app_name1;
+            //alert("without port");
+            return app_name;
+        }
+    })(location.pathname);
+
+    var loadFile = function (event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    $(document).ready(function () {
+        //$(function () {
+
+        $('#ddl_FileUploadType').change(function () {
+            var file_type = $('#ddl_FileUploadType').val();
+
+            if (file_type == 1 || file_type == 2) {
+                // document.getElementById('File').onchange = function () {
+                loadFile(event);
+                //  };
+            }
+            else {
+                return false;
+            };
+        });
+
+        $('#user_id').on('change', function (e) {
+            debugger;
+            var host1 = $(location).attr('host');
+            var protocol = window.location.protocol;
+            var url = protocol + "//" + host1 + appname + "/UserFileUpload/Get_UserInfoByUserId";
+            debugger;
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: protocol + "//" + host1 + appname + "/UserFileUpload/Get_UserInfoByUserId",
+                datatype: "json",
+                data: { pUSER_ID: $('#user_id').val() },
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data) {
+                        $('#USER_NAME').val(data.USER_NAME);
+                        $('#USER_ID').val(data.USER_ID);
+                        $('span').empty();
+                        if (data.AUTH_STATUS_ID == "U") {
+                            $("#user_id ").after('<span id="user_id_span", style="color:red">User is unauthorized.</span>');
+                            return false;
+                        }
+                        else {
+                            $('span').empty();
+                        }
+                        //$('span').text(' ');  //.empty & .text both works.
+                    }
+                    else {
+                        $('span').empty();
+                        $("#user_id").after('<span id="user_id_span", style="color:red">User does not exists.</span>');
+                        $('#user_name').val("");
+                        return false;
+                    }
+                },
+
+            });
+
+        });
+
+        //$('#user_id').blur(function () {
+        //    var host = $(location).attr('host');
+        //    var protocol = window.location.protocol;
+        //    debugger;
+        //    $.ajax({
+        //        type: "GET",
+        //        url: protocol + "//" + host + appname + "/UserFileUpload/Get_UserInfoByUserId",
+        //        data: { pUSER_ID: $('#user_id').val() },
+        //        datatype: "json",
+        //        contentType: "application/json; charset=utf-8",
+        //        success: function (data) {
+        //            if (data) {
+        //                $('#USER_NAME').val(data.USER_NAME);
+        //                $('#USER_ID').val(data.USER_ID);
+        //                $('span').empty();
+        //                if (data.AUTH_STATUS_ID == "U") {
+        //                    $("#user_id ").after('<span id="user_id_span", style="color:red">User is unauthorized.</span>');
+        //                    return false;
+        //                }
+        //                else {
+        //                    $('span').empty();
+        //                }
+        //                //$('span').text(' ');  //.empty & .text both works.
+        //            }
+        //            else {
+        //                $('span').empty();
+        //                $("#user_id").after('<span id="user_id_span", style="color:red">User does not exists.</span>');
+        //                $('#user_name').val("");
+        //                return false;
+        //            }
+        //        }
+        //    });
+
+        //});
+
+        $('#File').change(function () {
+
+
+            var file_type = $('#ddl_FileUploadType').val();
+
+            if (file_type == 1 || file_type == 2) {
+                //document.getElementById('File').onchange = function () {
+
+                loadFile(event);
+                //};
+            }
+            else {
+                return false;
+            };
+
+        });
+
+    //});
+    });
+</script>

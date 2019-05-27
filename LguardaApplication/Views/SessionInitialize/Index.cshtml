@@ -1,0 +1,224 @@
+﻿@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    #constrainer {
+        height: 70%;
+        width: 100%;
+    }
+
+    .scrolltable {
+        overflow-x: scroll;
+        height: 100%;
+    }
+
+        .scrolltable > .body {
+            width: -webkit-fit-content;
+            overflow-y: scroll;
+        }
+
+    .scrolltable {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+
+        .scrolltable > .header {
+        }
+
+        .scrolltable > .body {
+            flex: 1;
+            -webkit-flex: 1;
+        }
+
+    th, td {
+        min-width: 150px;
+    }
+</style>
+
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper scrollMainDiv" id="indexSearch">
+            @using (Html.BeginForm())
+            {
+                <div class="row">
+                    <div class="col-xs-4 form-group ">
+
+                        <a href="@Url.Action("Index", "Home")">&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+                    </div>
+                    <div class="col-xs-4 form-group indexBackground">
+                    </div>
+                    <div class="col-xs-4 form-group ">
+                        @*<a class="float-right" href="@Url.Action("ExportToPdf")"> &nbsp;<span class="glyphicon glyphicon-print float-right"> </span></a>
+                        <a class="float-right" href="@Url.Action("AddFavorites")">&nbsp;<span class="glyphicon glyphicon-star float-right"></span></a>*@
+                        <a class="float-right" href="@Url.Action("Index", "SessionInitialize")">&nbsp;<span class="glyphicon glyphicon-refresh float-right" style="color:black"> </span></a>
+                        @*<div class="icon-addon addon-sm float-right">
+                            <input type="text" placeholder=Search onkeyup="highlightSearchText(this, 'searchTable')" class="form-control" id="keyWord" style=" font-size: 12px " />
+                            <label for="keyWord" class="glyphicon glyphicon-search" title="Search"></label>
+                        </div>*@
+                    </div>
+                </div>
+
+                <h4 class="PageTitle" style="margin-left: 0px;"> <span style="padding-left:5px;">User Session Initialize</span> </h4>
+                <div id="constrainer">
+                    <div @*class="scrolltable"*@ id="searchTable">
+                        <div><br /></div>
+
+                        <div>
+                            @using (Html.BeginForm("Index", "SessionInitialize", FormMethod.Post, new { id = "mainForm" }))
+                            {
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-xs-4" style="float:left;">
+                                            @Html.DropDownListFor(m => m.SingleOrDefault().APPLICATION_ID, ViewBag.APPLICATION_LIST_FOR_DD as IEnumerable<SelectListItem>, "Application", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.SingleOrDefault().APPLICATION_ID)
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary" name="User_command" value="Application">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <div id="User_List" style="overflow: scroll; height:400px;">
+                            <table class="table table-striped paginated">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            USER ID
+                                        </th>
+                                        @*<th>
+                                                @Html.DisplayNameFor(model => model.USER_LOGIN)
+                                            </th>*@
+                                        <th scope="col">
+                                            USER START TIME
+                                        </th>
+                                        <th scope="col">
+                                            USER LAST TIME
+                                        </th>
+                                        <th scope="col">
+                                            IP ADDRESS
+                                        </th>
+                                        <th scope="col">
+
+                                        </th>
+
+                                    </tr>
+                                <thead>
+                                <tbody>
+
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.USER_ID)
+                                            </td>
+                                            @*<td>
+                                                    @Html.DisplayNameFor(model => model.USER_LOGIN)
+                                                </td>*@
+                                            <td>
+                                                @Html.DisplayFor(model => item.START_TIME)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.LAST_TIME)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.IP_ADDRESS)
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-primary" name="User_command" value="Add:@item.USER_ID">
+                                                    <i class=" glyphicon glyphicon-remove">
+                                                    </i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+
+                            </table>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                if (ViewData["Error"] != null)
+                {
+                    <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                }
+                if (ViewData["Success"] != null)
+                {
+                    <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                }
+            }
+        </div>
+    </section>
+
+
+}
+
+
+
+<style>
+    .highlighted {
+        background-color: Yellow;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/Search.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var appid = $('#APPLICATION_ID').val();
+        if (appid == null || appid == "") {
+            $('#User_List').hide();
+        }
+        else
+            $('#User_List').show();
+    });
+</script>
+
+@*<script>
+        $('td', 'table').each(function(i) {
+            $(this).text(i+1);
+        });
+
+
+
+        $('table.paginated').each(function() {
+            var currentPage = 0;
+            var numPerPage = 10;
+            var $table = $(this);
+            $table.bind('repaginate', function() {
+                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+            });
+            $table.trigger('repaginate');
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / numPerPage);
+            var $pager = $('<div class="pager"></div>');
+            for (var page = 0; page < numPages; page++) {
+                $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                    newPage: page
+                }, function(event) {
+                    currentPage = event.data['newPage'];
+                    $table.trigger('repaginate');
+                    $(this).addClass('active').siblings().removeClass('active');
+                }).appendTo($pager).addClass('clickable');
+            }
+            $pager.insertBefore($table).find('span.page-number:first')
+    </script>*@

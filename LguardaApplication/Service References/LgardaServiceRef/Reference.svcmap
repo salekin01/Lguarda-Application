@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c33fc1d4-b27a-4fda-b174-3a44c35f08b3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/LgurdaService/LgardaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LgardaService.disco" MetadataType="Disco" ID="5810d5a7-c27f-4639-a8e8-36d1da5ef6b4" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?disco" />
+    <MetadataFile FileName="LgardaService5.xsd" MetadataType="Schema" ID="3a19dcf9-2eeb-4c88-ab22-604eb7dacbcb" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LgardaService.xsd" MetadataType="Schema" ID="63e49bca-e16c-4b86-b241-2cbe4604c1f0" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LgardaService1.xsd" MetadataType="Schema" ID="7532ded3-f800-4b6b-9e4b-6a7293e41df9" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LgardaService.wsdl" MetadataType="Wsdl" ID="8afa8302-1cea-4211-91f4-105371f1d4ca" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?wsdl" />
+    <MetadataFile FileName="LgardaService2.xsd" MetadataType="Schema" ID="1effbef3-e17c-403d-8485-113a0d74af1b" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LgardaService3.xsd" MetadataType="Schema" ID="7ec77a28-37f0-40f3-b544-36b744f95cf9" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LgardaService4.xsd" MetadataType="Schema" ID="747a88b5-6690-43b8-8f84-1ee21bc32a01" SourceId="1" SourceUrl="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

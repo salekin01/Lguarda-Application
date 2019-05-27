@@ -1,0 +1,98 @@
+﻿
+@model LgurdaApp.Model.ControllerModels.LG_SYS_CLD_TYPE_MAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Calendar Type Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding">
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary">
+                                @Html.DisplayNameFor(model => model.CLD_TYPE_ID)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CLD_TYPE_ID)
+                                @Html.HiddenFor(m => m.CLD_TYPE_ID)
+                            </dd>
+                        </dl>
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary">
+                                @Html.DisplayNameFor(model => model.CLD_TYPE_NM)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CLD_TYPE_NM)
+                                @Html.HiddenFor(model => model.CLD_TYPE_NM)
+                            </dd>
+                        </dl>
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary">
+                                @Html.DisplayNameFor(model => model.DEFAULT_CLD)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.DEFAULT_CLD)
+                                @Html.HiddenFor(model => model.DEFAULT_CLD)
+                            </dd>
+                        </dl>
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary">
+                                @Html.DisplayNameFor(model => model.BASED_ON_CLD)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.BASED_ON_CLD)
+                                @Html.HiddenFor(model => model.BASED_ON_CLD)
+                            </dd>
+                        </dl>
+
+                        <div class="row LeftPadding">
+                            <div style="margin-top: 15px; ">
+                                <div>
+                                    <table id="gridEdit"></table>
+                                    <div id="pager"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <p class="MsgSection"> @TempData["Error"].ToString()</p>
+            }
+            @if (TempData["Success"] != null)
+            {
+                <p class="element "> @TempData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+@*<script>
+    var appid = ('@Model.APPLICATION_ID');
+    var userid = ('@Model.USER_ID');
+</script>*@
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+
+<script src="~/Scripts/Custom/RoleAssign.js"></script>

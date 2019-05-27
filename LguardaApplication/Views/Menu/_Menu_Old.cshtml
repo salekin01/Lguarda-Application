@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_MENU_MAP>
+
+<ul class="menu">
+    @foreach (var menuitem in Model)
+    {
+        <li class="divider"></li>
+        <li @*class="@((menuitem.Children != null) && (menuitem.Children.Count() > 0) ? "dropdown-submenu" : "dropdown")"*@>
+
+            @if (menuitem.PARENTID == 0)
+            {
+                <a href="#">@menuitem.NAME </a>
+            }
+            else
+            {
+                //if (ViewBag.First_login_flag == 1)
+                //{
+                @Html.ActionLink(menuitem.NAME, menuitem.ACTION, menuitem.CONTROLLER)
+                //}
+                //else
+                //{
+                //    @Html.ActionLink(menuitem.NAME, menuitem.ACTION, menuitem.CONTROLLER, new { @onmouseover = "javascript:return false;" })
+                //}
+            }
+
+            @if ((menuitem.Children != null) && (menuitem.Children.Count() > 0))
+            {
+                Html.RenderPartial("~/Views/Menu/_Menu.cshtml", menuitem.Children);
+            }
+        </li>
+    }
+</ul>
+
+<style>
+    .divider {
+        height: 1px;
+        background-color: #dbe4f6;
+    }
+</style>

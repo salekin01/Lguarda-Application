@@ -1,0 +1,199 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_CRD_PASSWORD_POLICY_MAP
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+   <section class="featured">
+    <div class="content-wrapper">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container scrollMainDiv">
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">Password Policy Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+
+
+                    <div class="scrollBodyDiv LeftPadding ">
+                        <fieldset>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group">
+                                    @Html.LabelFor(model => model.APPLICATION_ID, "Application Id", new {  @class = "control-label col-md-3" })
+                                    @Html.DropDownListFor(model => model.APPLICATION_ID, Model.LIST_APPLICATION_FOR_DD, new { @disabled = "disabled" })
+                                    @*@Html.ValidationMessageFor(model => model.APPLICATION_ID)*@
+                                    @Html.HiddenFor(model => model.APPLICATION_ID)
+                                </div>
+                            </div>
+
+                            <div class="row LeftPadding">
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_MAX_LENGTH, "Pass Max Length", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_MAX_LENGTH, new { placeholder = "Password Max Length", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_MAX_LENGTH)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_MIN_LENGTH, "Pass Min Length", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_MIN_LENGTH, new { placeholder = "Password Min Length", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_MIN_LENGTH)
+                                </div>
+                            </div>
+
+                            <div class="row LeftPadding">
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.NUMERIC_CHAR_MIN, "Non Alpha Numeric Character", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.NUMERIC_CHAR_MIN, new { placeholder = "Non Alpha numeric char(min)", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NUMERIC_CHAR_MIN)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_HIS_PERIOD, "Password History Period(Days)", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_HIS_PERIOD, new { placeholder = "Password History Period", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_HIS_PERIOD)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_REUSE_MAX, "Password Reuse Max", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_REUSE_MAX, new { placeholder = "Password Reuse Max", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_REUSE_MAX)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.FAILED_LOGIN_ATTEMT, "Failed Login Attempt", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.FAILED_LOGIN_ATTEMT, new { placeholder = "Failed Login Attempt", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FAILED_LOGIN_ATTEMT)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_EXP_PERIOD, "Password Expiry Period", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_EXP_PERIOD, new { placeholder = "Password Expiry Alert(Days)", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_EXP_PERIOD)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_EXP_ALERT, "Password Expiry Alert(Days)", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_EXP_ALERT, new { placeholder = "Password Expiry Alert(Days)", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_EXP_ALERT)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.MIN_CAPS_LETTER, "Minimum Capital Letter", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.MIN_CAPS_LETTER, new { placeholder = "Min Caps Letter", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MIN_CAPS_LETTER)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.MIN_SMALL_LETTER, "Minimum Small Letter", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.MIN_SMALL_LETTER, new { placeholder = "Min Small Letter", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MIN_SMALL_LETTER)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.MIN_NUMERIC_CHAR, "Minimum Numeric Character", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.MIN_NUMERIC_CHAR, new { placeholder = "Min Numeric char", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MIN_NUMERIC_CHAR)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.MIN_CONS_USE_PASS, "Minimum Consequtive Of Using Character", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.MIN_CONS_USE_PASS, new { placeholder = "Min consequtive of using password", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MIN_CONS_USE_PASS)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_REPEAT, "Same Password Repeat After", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_REPEAT, new { placeholder = "Same Password Repeat After", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_REPEAT)
+                                </div>
+
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_CHANGED_EXPIRY, "Password Changed Expiry", new { @class = "control-label col-md-3" })
+                                    @Html.TextBoxFor(model => model.PASS_CHANGED_EXPIRY, new { placeholder = "Password Changed After Expiry", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PASS_CHANGED_EXPIRY)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_AUTO_CREATION_B, "Password Auto Creation", new { @class = "control-label col-md-3" })
+                                    @Html.EditorFor(model => model.PASS_AUTO_CREATION_B, new { @class = "form-control" })
+                                    @Html.Label("Password Auto Creation")
+                                </div>
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_CHANGE_BY_ADMIN_B, "Manual Password Change By Admin", new { @class = "control-label col-md-3" })
+                                    @Html.EditorFor(model => model.PASS_CHANGE_BY_ADMIN_B, new { @class = "form-control" })
+                                    @Html.Label("Manual Password Change By Admin")
+                                </div>
+                            </div>
+
+                            <div class="row LeftPadding">
+                            
+                                <div class="col-xs-6 form-group ">
+                                    @Html.LabelFor(model => model.PASS_CHANG_AT_FIRST_LOGIN_B, "Force Password Change At First Login", new { @class = "control-label col-md-3" })
+                                    @Html.EditorFor(model => model.PASS_CHANG_AT_FIRST_LOGIN_B, new { @class = "form-control" })
+                                    @Html.Label("Force Password Change At First Login")
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group ">
+                                
+                                <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="MsgSection"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element "> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</section>
+}
+
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*Test purpose*@

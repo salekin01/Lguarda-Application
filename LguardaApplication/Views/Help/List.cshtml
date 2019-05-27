@@ -1,0 +1,92 @@
+﻿
+@model IEnumerable<LgurdaApp.Model.ControllerModels.Help>
+@using LgurdaApp.Model.ControllerModels
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    #nav {
+        line-height: 35px;
+        /*background-color: #eeeeee;*/
+        width: 30%;
+        float: left;
+        padding: 5px;
+        border-style: solid;
+        border-width: medium;
+        height: 580px;
+        overflow-y: scroll;
+    }
+
+    #section1 {
+        width: 70%;
+        float: left;
+        padding: 5px;
+        /*background-color: #eeeeee;*/
+        border-style: solid;
+        border-width: medium;
+        height: 580px;
+        overflow-y: scroll;
+    }
+</style>
+
+
+@section featured
+    {
+
+    <section class="featured">
+        <div class="content-wrapper">
+           
+            <div class="row">
+                <div class="col-xs-4 form-group ">
+                    <a href="@Url.Action("Index", "Home")">&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+                </div>
+                
+                <div class="col-xs-4 form-group indexBackground">
+                </div>
+            </div>
+         
+            <div id="nav">
+                <table class="table  table-hover" style="color: black; font-size: 14px; font-weight: bold; ">
+
+                    @foreach (var objHelp in Model)
+                    {
+                        <tr>
+                            <td>
+                               
+                                @{
+                        Help help = objHelp;
+                                }
+                                <i class="glyphicon glyphicon-search"></i>
+                               
+                                @Html.DisplayFor(modelItem => help.cntrlName)
+                                @*<a href="@Url.Action("GetHelp", new {  cntrlName = help.cntrlName })"> &nbsp;<span class="glyphicon glyphicon-triangle-right float-left"> </span></a>*@
+                                <a class="float-right" href="@Url.Action("GetHelp", new {  cntrlName = help.cntrlName })"> &nbsp;<span class="glyphicon glyphicon glyphicon-search float-right"> </span></a>
+
+                                @*<a  href="@Url.Action("GetHelp", new { cntrlName = help.cntrlName })"> &nbsp;<span class="glyphicon glyphicon-triangle-right"> </span></a>*@
+                                </td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+
+            <div id="section1">
+                <table class="table table-hover" style="color: black; font-size: 14px; font-weight: bold; "></table>
+
+
+
+            </div>
+        </div>
+
+
+        @*</body>*@
+    </section>
+}
+
+
+
+

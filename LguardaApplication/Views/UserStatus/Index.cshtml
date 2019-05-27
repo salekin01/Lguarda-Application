@@ -1,0 +1,137 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_STATUS_MAP
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div class="container scrollMainDiv">
+                        <div class="row">
+                            <h4 class="PageTitle">User Status</h4>
+                            @*<a href="@Url.Action("Index")">
+                                    <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>*@
+                        </div>
+                        @Html.ValidationSummary(true)
+
+
+                        <div class="scrollBodyDiv LeftPadding">
+
+                            <div class="row LeftPadding">
+                                <div class="col-xs-4 form-group">
+                                    @Html.TextBoxFor(model => model.USER_ID, new { placeholder = "User Id", @class = "form-control", id = "u_id" })
+                                    @Html.ValidationMessageFor(model => model.USER_ID)
+                                </div>
+                            </div>
+
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    <button type="submit" id="btnSearch" value="Search" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+
+                                    <button type="button" id="btnNew" value="Clear" class="btn btn-primary" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "UserStatus")'">
+                                        <i class="glyphicon glyphicon-refresh"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="partial" style="height:auto;width:auto;">
+                            @{Html.RenderPartial("PartialView_UserDetails", Model); }
+                        </div>
+
+                        @if (Model != null)
+                        {
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    <input type="submit" id="btnReset" value="Reset" class="btn btn-primary btn-sm " />
+                                </div>
+                                <div class="col-xs-2 form-group ">
+                                    <input type="button" id="btnNew" value="Clear" class="btn btn-primary btn-sm " @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "UserStatus")'" />
+                                </div>
+                            </div>
+                        }
+
+                        @if (ViewData["Error"] != null)
+                        {
+                            <p class="element errormsg" > @ViewData["Error"].ToString()</p>
+                        }
+                        @if (ViewData["Success"] != null)
+                        {
+                            <p class="element successmsg" > @ViewData["Success"].ToString()</p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#partial').hide();
+
+        var MyAppUrlSettings = { MyUsefulUrl: "" };
+        var data;
+
+    });
+
+
+
+    $(function () {
+
+        $('#btnSearch').click(function (e) {
+            e.preventDefault();
+
+            var userId = $('#u_id').val();
+
+            if (userId != "") {
+                MyAppUrlSettings = {
+                    MyUsefulUrl: '@Url.Action("FindUserDetailById", "UserStatus")'
+                };
+                data = { 'id': userId };
+            }
+
+            if (userId != "") {
+                $.ajax({
+                    url: MyAppUrlSettings.MyUsefulUrl,
+                    @*url: '@Url.Action("FindUserDetail", "UserStatus")',*@
+                    datatype: "html",
+                    data: data,
+                    type: 'GET',
+                    cache: false,
+                    success: function (data) {
+                        $('#partial').show();
+                        $('#partial').html(data);
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>
+
+
+<style>
+    input[type=submit] {
+        width: 100px;
+        padding: 1px;
+    }
+</style>

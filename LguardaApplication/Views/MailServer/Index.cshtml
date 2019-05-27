@@ -1,0 +1,120 @@
+﻿@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_SYS_MAIL_SERVER_CONFIG_MAP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper scrollMainDiv" id="indexSearch">
+            <div class="row">
+                <div class="col-xs-4 form-group ">
+                    <a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus LeftPadding"> </span></a>
+                    <a href="@Url.Action("Index", "Home")">&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+                </div>
+
+                <div class="col-xs-4 form-group indexBackground">
+                </div>
+                <div class="col-xs-4 form-group ">
+                    @*<a class="float-right" href="@Url.Action("ExportToPdf")"> &nbsp;<span class="glyphicon glyphicon-print float-right"> </span></a>
+                    <a class="float-right" href="@Url.Action("AddFavorites")">&nbsp;<span class="glyphicon glyphicon-star float-right"></span></a>*@
+                    <a class="float-right" href="@Url.Action("Index", "MailServer")">&nbsp;<span class="glyphicon glyphicon-refresh float-right" style="color:black"> </span></a>
+                    @*<div class="icon-addon addon-sm float-right">
+                        <input type="text" placeholder="Search" onkeyup="highlightSearchText(this, 'searchTable')" class="form-control" id="keyWord" style=" font-size: 12px " />
+                        <label for="keyWord" class="glyphicon glyphicon-search" title="Search"></label>
+                    </div>*@
+                </div>
+            </div>
+            <h4 class="PageTitle" style="margin-left: 0 !important; padding-left: 5px;">Mail Server Setup</h4>
+            <div id="constrainer">
+                <div class="scrolltable" id="searchTable">
+                    <table class="table table-striped" id="searchTable">
+                        <tr>
+                            <th>
+                                @Html.DisplayName("APPLICATION NAME")
+                            </th>
+                            <th>
+                                @Html.DisplayName("MAIL SENDER IP")
+                            </th>
+                            <th>
+                                @Html.DisplayName("MAIL SENDER ADDRESS")
+                            </th>
+                            <th>
+                                @Html.DisplayName("MAIL SENDER PASSWORD")
+                            </th>
+                            <th>
+                                @Html.DisplayName("MAIL SENDER NAME")
+                            </th>
+                            <th>
+                                @Html.DisplayName("AUTH STATUS ID")
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.APPLICATION_NAME)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MAIL_SENDER_IP)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MAIL_SENDER_ADDRESS)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MAIL_SENDER_PASSWORD)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MAIL_SENDER_NAME)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AUTH_STATUS_ID)
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-sm" href="@Url.Action("Edit", new { id = item.MAIL_ID })">
+                                        <span class="glyphicon glyphicon-pencil text-primary"> </span>
+                                    </a>
+                                    |
+                                    <a class="btn btn-sm " @*href="@Url.Action("Details", new { id = item.MAIL_ID })"*@>
+                                        <span class="glyphicon glyphicon-book text-success"> </span>
+                                    </a>
+                                    |
+                                    <a class="btn  btn-sm" @*href="@Url.Action("Delete", new { id = item.MAIL_ID })"*@>
+                                        <span class="glyphicon glyphicon-trash text-danger "> </span>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="MsgSectionEdit"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+
+    </section>
+}
+<style>
+    .highlighted {
+        background-color: Yellow;
+    }
+</style>
+<script src="~/Scripts/Search.js"></script>
+
+
+
+

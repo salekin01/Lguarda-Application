@@ -1,0 +1,113 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_2FA_OTP_CONFIG_MAP
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">OTP Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.APPLICATION_ID)
+                    <div class="scrollBodyDiv LeftPadding">
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.APPLICATION_ID, "Application Id", new { @class = "control-label col-xs-4" })
+                                @Html.TextBoxFor(model => model.APPLICATION_ID, "APPLICATION ID", new { @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.APPLICATION_ID, "Application Name", new { @class = "control-label col-xs-4" })
+                                @Html.TextBoxFor(model => model.APPLICATION_NAME, "APPLICATION NAME", new { @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_NAME)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MAIL_FLAG_B, "Mail Flag", new { @class = "control-label col-xs-4" })
+                                @Html.EditorFor(model => model.MAIL_FLAG_B, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.SMS_FLAG_B, "SMS Flag", new { @class = "control-label col-xs-4" })
+                                @Html.EditorFor(model => model.SMS_FLAG_B, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.VALIDITY_PERIOD, "Validity Period", new { @class = "control-label col-xs-4" })
+                                @Html.TextBoxFor(model => model.VALIDITY_PERIOD, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.VALIDITY_PERIOD)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.NO_OF_OTP_DIGIT, "N0 Of Otp Digit", new { @class = "control-label col-xs-4" })
+                                @Html.TextBoxFor(model => model.NO_OF_OTP_DIGIT, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NO_OF_OTP_DIGIT)
+
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.OTP_FORMAT_ID, "Otp Format Id", new { @class = "control-label col-xs-4" })
+                                @Html.DropDownListFor(model => model.OTP_FORMAT_ID, Model.OTP_FORMATE_LIST_FOR_DD, "---- OTP Format ----", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OTP_FORMAT_ID)
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group ">
+                                <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+
+        </div>
+    </section>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

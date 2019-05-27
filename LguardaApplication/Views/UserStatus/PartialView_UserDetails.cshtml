@@ -1,0 +1,248 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_SETUP_PROFILE_MAP
+
+<div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    @if (Model != null)
+    {
+        <div class="LeftPadding">
+            <div class="LeftPadding">
+                <h4>USER DESCRIPTION</h4>
+            </div>
+        </div>
+        <hr />
+
+        <div class="LeftPadding">
+            <dl class="dl-horizontal LeftPadding">
+                <dt style="text-align:left;">
+                    @*@Html.DisplayNameFor(model => model.USER_ID)*@
+                    User ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_ID)
+                </dd>
+
+                <dt style="text-align:left;">
+                    User Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    User Description
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_DESCRIPTION)
+                </dd>
+                <dt style="text-align:left;">
+                    User Area wise ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USER_AREA_ID_VALUE)
+                </dd>
+                @*@if (Model.CLASSIFICATION_ID == "1")
+                    {
+                    <dt style="text-align:left;">
+                        Employee ID
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.EMPLOYEE_ID)
+                    </dd>
+                    }
+                    @if (Model.CLASSIFICATION_ID == "2")
+                    {
+                    <dt style="text-align:left;">
+                        Customer ID
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CUSTOMER_ID)
+                    </dd>
+                    }
+                    @if (Model.CLASSIFICATION_ID == "3")
+                    {
+                    <dt style="text-align:left;">
+                        Agent ID
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AGENT_ID)
+                    </dd>
+                    }*@
+                <dt style="text-align:left;">
+                    Account Number
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ACC_NO)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Father's Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FATHERS_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Mother's Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MOTHERS_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Date Of Birth
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DOB)
+                </dd>
+
+                <dt style="text-align:left;">
+                    E-mail Address
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MAIL_ADDRESS)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Mobile Number
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MOB_NO)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Area Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AREA_NAME)
+                </dd>
+
+                <dt style="text-align:left;">
+                    Branch Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BRANCH_NAME)
+                </dd>
+                <dt style="text-align:left;">
+                    Lock Status
+                </dt>
+                @if (Model.USER_ID_LOCK_WRNG_ATM == 1)
+                {
+                    <dd>
+                        Locked
+                    </dd>
+                }
+                else
+                {
+                    <dd>
+                        Unlocked
+                    </dd>
+                }
+                <dt style="text-align:left;">
+                    Activation Status
+                </dt>
+                @if (Model.ACTIVE_FLAG_INACTV_USER == 1)
+                {
+                    <dd>
+                        Active
+                    </dd>
+                }
+                else
+                {
+                    <dd>
+                        Inactive
+                    </dd>
+                }
+            </dl>
+        </div>
+
+
+        <div class="row LeftPadding">
+            <div class="col-xs-6 form-group ">
+                @if (Model.ACTIVE_FLAG_INACTV_USER != 1)
+                {
+
+
+                    <button type="button" id="btnActivate" name="Activate" value="Activate" class="btn btn-primary" style="width: 90px;" onclick="location.href='@Url.Action("Active", "UserStatus", new { pUSER_ID = Model.USER_ID })'">
+                        Activate
+                    </button>
+                    @*<input type="button" id="btnActivate" value="Activate" class="btn btn-primary btn-sm " onclick="location.href='@Url.Action("Active", "UserStatus", new { pUSER_ID = Model.USER_ID })'" />*@
+                }
+                @if (Model.ACTIVE_FLAG_INACTV_USER != 0)
+                {
+                    @*<div class="col-xs-2 form-group ">*@
+                    <button type="button" id="btnInActivate" name="InActivate" value="InActivate" class="btn btn-primary" style="width: 90px;" onclick="location.href='@Url.Action("InActive", "UserStatus", new { pUSER_ID = Model.USER_ID })'">
+                        InActivate
+                    </button>
+                    @*<input type="button" id="btnInActivate" value="InActivate" class="btn btn-primary btn-sm " onclick="location.href='@Url.Action("InActive", "UserStatus", new { pUSER_ID = Model.USER_ID })'" />*@
+                    @*</div>*@
+                }
+                @if (Model.USER_ID_LOCK_WRNG_ATM != 1)
+                {
+                    @*<div class="col-xs-2 form-group ">*@
+                    <button type="button" id="btnLock" name="Lock" value="Lock" class="btn btn-primary" style="width: 90px;" onclick="location.href='@Url.Action("Lock", "UserStatus", new { pUSER_ID = Model.USER_ID })'">
+                        Lock
+                    </button>
+                    @*<input type="button" id="btnLock" value="Lock" class="btn btn-primary btn-sm " onclick="location.href='@Url.Action("Lock", "UserStatus", new { pUSER_ID = Model.USER_ID })'" />*@
+                    @*</div>*@
+                }
+                @if (Model.USER_ID_LOCK_WRNG_ATM != 0)
+                {
+                    @*<div class="col-xs-2 form-group ">*@
+                    <button type="button" id="btnUnlock" name="Unlock" value="Unlock" class="btn btn-primary" style="width: 90px;" onclick="location.href='@Url.Action("Unlock", "UserStatus", new { pUSER_ID = Model.USER_ID })'">
+                        Unlock
+                    </button>
+                    @*<input type="button" id="btnUnlock" value="Unlock" class="btn btn-primary btn-sm " onclick="location.href='@Url.Action("Unlock", "UserStatus", new { pUSER_ID = Model.USER_ID })'" />*@
+                    @*</div>*@
+                }
+                @*<div class="col-xs-2 form-group ">
+                        <input type="button" id="btnDeactivate" value="Deactivate" class="btn btn-primary btn-sm " onclick="location.href='@Url.Action("Deactivate", "UserStatus", new { pUSER_ID = Model.USER_ID })'" />
+                    </div>*@
+                    @*<div class="col-xs-2 form-group ">
+                            <input type="button" id="btnClr" value="Clear" class="btn btn-primary btn-sm " @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "UserStatus")'" />
+                        </div>*@
+                </div>
+            </div>
+    }
+
+
+    @if (ViewData["Error"] != null)
+    {
+        <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+    }
+    @if (ViewData["Success"] != null)
+    {
+        <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+    }
+
+    @*else
+        {
+            <h2 style="padding-left:40%"> No User Found </h2>
+        }*@
+
+</div>
+
+<style>
+    input[type=button] {
+        width: 100px;
+        padding: 1px;
+    }
+</style>

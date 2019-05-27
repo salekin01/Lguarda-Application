@@ -1,0 +1,123 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_ROLE_DEFINE_MAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Role Define</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+                    <div class="container scrollBodyDiv LeftPadding">
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary" style="text-align:left;">
+                                @Html.DisplayName("Role Id")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ROLE_ID)
+                                @Html.HiddenFor(m => m.ROLE_ID)
+                            </dd>
+                        </dl>
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary" style="text-align:left;">
+                                @Html.DisplayName("Role Name")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ROLE_NM)
+                                @Html.HiddenFor(model => model.ROLE_NM)
+                            </dd>
+                        </dl>
+                        <dl class=" container dl-horizontal">
+                            <dt class="text-primary" style="text-align:left;">
+                                @Html.DisplayName("Role Description")
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ROLE_DESCRIP)
+                                @Html.HiddenFor(model => model.ROLE_DESCRIP)
+                            </dd>
+                        </dl>
+
+                        @*<dl class=" container dl-horizontal">
+                <dt class="text-primary">
+                    @Html.DisplayName("Application Name")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.APPLICATION_NAME)
+                    @Html.HiddenFor(model => model.APPLICATION_ID)
+                </dd>
+            </dl>
+            <dl class=" container dl-horizontal">
+                <dt class="text-primary">
+                    @Html.DisplayName("Service Name")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SERVICE_NM)
+                    @Html.HiddenFor(model => model.SERVICE_ID)
+                </dd>
+            </dl>
+            <dl class=" container dl-horizontal">
+                <dt class="text-primary">
+                    @Html.DisplayName("Module Name")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MODULE_NM)
+                    @Html.HiddenFor(model => model.MODULE_ID)
+                </dd>
+            </dl>
+            <dl class=" container dl-horizontal">
+                <dt class="text-primary">
+                    @Html.DisplayName("Item Type")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ITEM_TYPE)
+                    @Html.HiddenFor(model => model.ITEM_TYPE)
+                </dd>
+            </dl>*@
+
+
+                        <div class="row LeftPadding">
+                            <div style="margin-top: 15px; ">
+                                <div>
+                                    <table id="gridSelectedFunction"></table>
+                                    <div id="pager"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg" > @ViewData["Error"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+
+<script src="~/Scripts/Custom/RoleDefine.js"></script>
+
+<script>
+    var roleid = ('@Model.ROLE_ID');
+    var moduleid = ('@Model.MODULE_ID');
+    var itemtype = ('@Model.ITEM_TYPE');
+</script>

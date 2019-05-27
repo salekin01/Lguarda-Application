@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_MENU_MAP>
+
+@{
+    var i = 0;
+
+}
+@foreach (var menuitem in Model)
+{
+
+    if (menuitem.PARENTID == 0)
+    {
+
+        if (i > 0)
+        {
+            @Html.Raw("</li>")
+        }
+        @Html.Raw("<li class='treeview'>")
+        <a href="#">
+            <span>@menuitem.NAME </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        i++;
+    }
+    else
+    {
+       
+            <li >
+                <a href="@Url.Action(menuitem.ACTION, menuitem.CONTROLLER)" class="@((@ViewContext.RouteData.Values["controller"].ToString() == menuitem.CONTROLLER && @ViewContext.RouteData.Values["action"].ToString() == menuitem.ACTION) == true ? "activeClass" : "")">
+                    <i class="fa fa-circle-o"></i>@menuitem.NAME
+                </a>
+
+            </li>
+
+    }
+
+
+
+    if ((menuitem.Children != null) && (menuitem.Children.Count() > 0))
+    {
+        <ul class="treeview-menu">
+
+            @{
+                Html.RenderPartial("~/Views/Menu/_Menu.cshtml", menuitem.Children);
+            }
+        </ul>
+
+    }
+
+}
+
+
+
+
+
+

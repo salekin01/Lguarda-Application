@@ -1,0 +1,75 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_ROLE_MAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @*@using (Html.BeginForm())*@
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Role Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+
+                    @Html.ValidationSummary(true)
+
+                    <div class="scrollBodyDiv LeftPadding">
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.ROLE_ID, "Role ID", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.ROLE_ID, new { @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ROLE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.ROLE_NAME, "Role Name", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.ROLE_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ROLE_NAME)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.ROLE_DESCRIP, "Role Description", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.ROLE_DESCRIP, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ROLE_DESCRIP)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group LeftPadding">
+                                <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="reset" class="btn btn-primary " id="btnNew" value="Clear" onclick="location.href='@Url.Action("Edit", "Role", new { id = Model.ROLE_ID })'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+

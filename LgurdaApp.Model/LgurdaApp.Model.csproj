@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{951871B9-630E-4ADB-97AF-2B2B6C7DF3F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LgurdaApp.Model</RootNamespace>
+    <AssemblyName>LgurdaApp.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.5.0.0.0\lib\net45\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="MVC Foolproof Validation">
+      <HintPath>..\..\nCore\nCore\bin\MVC Foolproof Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bool_Check.cs" />
+    <Compile Include="Common\CryptorEngine.cs" />
+    <Compile Include="Common\Security.cs" />
+    <Compile Include="ControllerModels\ADUserInformation.cs" />
+    <Compile Include="ControllerModels\Help.cs" />
+    <Compile Include="ControllerModels\LG_2FA_OTP_CONFIG_MAP.cs" />
+    <Compile Include="ControllerModels\LG_AA_NFT_AUTH_LOG_DTLS_MAP.cs" />
+    <Compile Include="ControllerModels\LG_AA_NFT_AUTH_LOG_MAP.cs" />
+    <Compile Include="ControllerModels\LG_AA_NFT_AUTH_LOG_VAL_MAP.cs" />
+    <Compile Include="ControllerModels\LG_CRD_PASSWORD_CHANGE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_APPLICATION_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_FUNCTION_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_MODULE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_CRD_PASSWORD_POLICY_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_ROLE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_ROLE_PERMISSION_DETAILS_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_ROLE_PERMISSION_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_SERVICE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_MENU_MAP.cs" />
+    <Compile Include="ControllerModels\LG_SYS_CLD_TYPE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_SYS_FAVOURITE.cs" />
+    <Compile Include="ControllerModels\LG_SYS_HOLIDAY_MARKING_MAP.cs" />
+    <Compile Include="ControllerModels\LG_SYS_HOLIDAY_TYPE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_SYS_MAIL_SERVER_CONFIG_MAP.cs" />
+    <Compile Include="ControllerModels\LG_USER_ACTIVITY_LOG_MAP.cs" />
+    <Compile Include="ControllerModels\LG_USER_AD_BINDING_MAP.cs" />
+    <Compile Include="ControllerModels\LG_USER_FILE_UPLOAD_MAP.cs" />
+    <Compile Include="ControllerModels\LG_USER_SESSION_INITIALIZE.cs" />
+    <Compile Include="ControllerModels\LG_USER_STATUS_MAP.cs" />
+    <Compile Include="ControllerModels\LG_USER_ROLE_ASSIGN_MAP.cs" />
+    <Compile Include="ControllerModels\LG_FNR_ROLE_DEFINE_MAP.cs" />
+    <Compile Include="ControllerModels\LG_USER_SETUP_PROFILE_MAP.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationAttribute\ValidateUploadingFileAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

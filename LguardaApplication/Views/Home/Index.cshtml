@@ -1,0 +1,48 @@
+﻿
+
+
+
+<link rel="shortcut icon" href="Images/shield_icon.ico" />
+
+<link href="~/Content/style.css" rel="stylesheet" />
+
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        @using (Html.BeginForm())
+        {
+
+            <div class="content-wrapper">
+                @*<hgroup class="title">
+                        <h2>@ViewBag.Title.</h2>
+                    </hgroup>*@
+
+            </div>
+            <div class="background">
+
+            </div>
+            <div class="transbox">
+
+            </div>
+      <div>
+        @if (TempData["Error"] != null)
+        {
+        <p class="MsgSection"> @TempData["Error"].ToString()</p>
+        }
+       </div>
+
+        }
+
+    </section>
+
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+

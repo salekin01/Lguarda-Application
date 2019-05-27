@@ -1,0 +1,162 @@
+﻿@model IEnumerable<LgurdaApp.Model.ControllerModels.LG_FNR_MODULE_MAP>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    #constrainer {
+        height: 70%;
+        width: 100%;
+    }
+
+    .scrolltable {
+        overflow-x: scroll;
+        height: 100%;
+    }
+
+        .scrolltable > .body {
+            width: -webkit-fit-content;
+            overflow-y: scroll;
+        }
+
+    .scrolltable {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+
+        .scrolltable > .header {
+        }
+
+        .scrolltable > .body {
+            flex: 1;
+            -webkit-flex: 1;
+        }
+
+    th, td {
+        min-width: 150px;
+    }
+</style>
+
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper scrollMainDiv" id="indexSearch">
+            <div class="row">
+                <div class="col-xs-4 form-group ">
+                    <a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus LeftPadding"> </span></a>
+                    <a href="@Url.Action("Index", "Home")">&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+                </div>
+
+                <div class="col-xs-4 form-group indexBackground">
+                </div>
+                <div class="col-xs-4 form-group ">
+                    @*<a class="float-right" href="@Url.Action("ExportToPdf")"> &nbsp;<span class="glyphicon glyphicon-print float-right"> </span></a>
+                    <a class="float-right" href="@Url.Action("AddFavorites")">&nbsp;<span class="glyphicon glyphicon-star float-right"></span></a>*@
+                    <a class="float-right" href="@Url.Action("Index", "Module")">&nbsp;<span class="glyphicon glyphicon-refresh float-right" style="color:black"> </span></a>
+                    @*<div class="icon-addon addon-sm float-right">
+                        <input type="text" placeholder="Search" onkeyup="highlightSearchText(this, 'searchTable')" class="form-control" id="keyWord" style=" font-size: 12px " />
+                        <label for="keyWord" class="glyphicon glyphicon-search" title="Search"></label>
+                    </div>*@
+                </div>
+            </div>
+            <h4 class="PageTitle">Module Setup</h4>
+            <div id="constrainer">
+                <div class="scrolltable" id="searchTable">
+                    <table class="table table-striped LeftPadding" id="searchTable">
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Application ID")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Application Name")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Service Id")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Service Nm")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Module Id")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Module Nm")
+                            </th>
+                            
+                            <th>
+                                @Html.DisplayName("Auth Status ID")
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.APPLICATION_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.APPLICATION_NAME)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SERVICE_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SERVICE_NM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MODULE_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MODULE_NM)
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AUTH_STATUS_ID)
+                            </td>
+                            <td>
+                                <a class="btn btn-sm" href="@Url.Action("Edit", new { service_id = item.SERVICE_ID, module_id = item.MODULE_ID, app_id = item.APPLICATION_ID})">
+                                    <span class="glyphicon glyphicon-pencil text-primary"> </span>
+                                </a>
+                                |
+                                <a class="btn btn-sm " href="@Url.Action("Details", new { service_id = item.SERVICE_ID, module_id = item.MODULE_ID, app_id = item.APPLICATION_ID })">
+                                    <span class="glyphicon glyphicon-book text-success"> </span>
+                                </a>
+                                @*|
+                                <a class="btn  btn-sm" href="@Url.Action("Delete", new { id = item.MODULE_ID })">
+                                    <span class="glyphicon glyphicon-trash text-danger "> </span>
+                                </a>*@
+                            </td>
+
+                        </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="MsgSectionEdit"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+<style>
+    .highlighted {
+        background-color: Yellow;
+    }
+</style>
+<script src="~/Scripts/Search.js"></script>
+

@@ -1,0 +1,82 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_USER_ACTIVITY_LOG_MAP
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="container scrollMainDiv">
+                    <div class="container scrollMainDiv">
+                        <div class="row">
+                            <h4 class="PageTitle">Show Audit Log</h4>
+                            <a href="@Url.Action("Index")">
+                                <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                        </div>
+                        @Html.ValidationSummary(true)
+
+                        <div class="scrollBodyDiv LeftPadding ">
+                            <fieldset>
+                                <div class="row LeftPadding">
+                                    <div class="col-xs-4 form-group">
+                                        @Html.TextBoxFor(model => model.USER_ID, new { placeholder = "User ID", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.USER_ID)
+                                    </div>
+                                    <div class="col-xs-4 form-group" style="padding-left:40px">
+                                        @*@Html.LabelFor(model => model.START_DATE)
+                                            @Html.EditorFor(model => model.START_DATE, new { placeholder = "Start Date", @class = "form-control" })*@
+                                        @Html.TextBoxFor(model => model.START_DATE, new { @Value = @DateTime.Now.Date.ToShortDateString(), @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.START_DATE)
+                                        @*<div style="padding-left:63px;">@Html.ValidationMessageFor(model => model.START_DATE)</div>*@
+                                    </div>
+                                    <div class="col-xs-4 form-group ">
+                                        @*@Html.LabelFor(model => model.END_DATE)
+                                            @Html.EditorFor(model => model.END_DATE, new { placeholder = "End Date", @class = "form-control" })*@
+                                        @Html.TextBoxFor(model => model.END_DATE, new { @Value = @DateTime.Now.Date.ToShortDateString(), @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.END_DATE)
+                                        @*<div style="padding-left:55px;">@Html.ValidationMessageFor(model => model.END_DATE)</div>*@
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <br />
+
+                        <div class="btn-group row LeftPadding" style="padding-top:7px;">
+                            <div class=" col-xs-4">
+                                <button type="submit" name="command" value="Search" class="btn btn-primary btn-sm  " />
+                                <span class="glyphicon glyphicon-search"></span>
+                            </div>
+
+                            <div class=" col-xs-4 ">
+                                <button type="button" id="btnNew" value="Clear" class="btn btn-primary btn-sm  " @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Index", "AuditTrail")'" />
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+<style>
+    input[type=submit] {
+        width: 100px;
+        padding: 1px;
+    }
+
+    input[type=button] {
+        width: 100px;
+        padding: 1px;
+    }
+</style>

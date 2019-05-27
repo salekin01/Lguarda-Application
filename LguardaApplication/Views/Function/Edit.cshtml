@@ -1,0 +1,262 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_FUNCTION_MAP
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "FunctionFormId" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Function Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.FUNCTION_ID)
+                    <div class="scrollBodyDiv LeftPadding">
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.FUNCTION_ID, new { placeholder = "Function Id", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FUNCTION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.FUNCTION_NM, new { placeholder = "Function Full Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FUNCTION_NM)
+
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---- Application ----", new { @id = "ddl_Application", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.SERVICE_ID, new List<SelectListItem>(), "---- Service ----", new { @id = "ddl_Service", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SERVICE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.MODULE_ID, new List<SelectListItem>(), "---- Module ----", new { @id = "ddl_Module", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MODULE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.ITEM_TYPE, new List<SelectListItem>(), "---- Item Type ----", new { @id = "ddl_ItemType", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ITEM_TYPE)
+                            </div>
+                        </div>
+
+
+                        <div class="LeftPadding">
+                            <div class="row LeftPadding" style="float: left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_CRT_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Create")
+                                </div>
+
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_EDT_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Edit")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_DEL_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Delete")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_DTL_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Details")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_INDX_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Index")
+                                </div>
+                            </div>
+
+                            <div style="clear:left;"></div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.ENABLED_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Menu Enable")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.PROCESS_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("FT")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_OTP_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("OTP")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_BIO_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("BIO")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.CheckBoxFor(model => model.MAINT_2FA_FLAG_B, new { @id = "2FA_FLAG" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("2FA")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left; display: none;" id="2FA_HARD">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_2FA_HARD_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Soft")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left; display: none;" id="2FA_SOFT">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_2FA_SOFT_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Hard")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.CheckBoxFor(model => model.MAINT_AUTH_FLAG_B, new { @id = "AUTH_FLAG" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Authorize")
+                                </div>
+                            </div>
+                            <div class="row" style="float:left; padding-left:2em;">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(m => m.AUTH_LEVEL, new { placeholder = "Auth Level", id = "Auth_Level", @readonly = "readonly", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AUTH_LEVEL)
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div style="clear:left;"></div>
+                        <div class="LeftPadding" style="float:left; ">
+                            @Html.Label("Report Options")
+                        </div>
+                        <div class="row LeftPadding" style="float:left;">
+                            <div class="col-xs-6 form-group ">
+                                @Html.EditorFor(model => model.REPORT_VIEW_FLAG_B, new { @class = "form-control" })
+                                @Html.Label("View")
+                            </div>
+                        </div>
+                        <div class="row" style="float:left;">
+                            <div class="col-xs-6 form-group ">
+                                @Html.EditorFor(model => model.REPORT_PRINT_FLAG_B, new { @class = "form-control" })
+                                @Html.Label("Print")
+                            </div>
+                        </div>
+                        <div class="row " style="float:left;">
+                            <div class="col-xs-6 form-group ">
+                                @Html.EditorFor(model => model.REPORT_GEN_FLAG_B, new { @class = "form-control" })
+                                @Html.Label("Generate")
+                            </div>
+                        </div>*@
+
+
+                        <div style="clear:left;"></div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group ">
+                                <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="reset" class="btn btn-primary " id="btnNew" value="Clear" onclick="location.href='@Url.Action("Edit", "Function", new { id = Model.FUNCTION_ID })'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Custom/FunctionSetup.js"></script>
+
+<script>
+    var appid = ('@Model.APPLICATION_ID');
+    var serviceid = ('@Model.SERVICE_ID');
+    var moduleid = ('@Model.MODULE_ID');
+    var itemtype = ('@Model.ITEM_TYPE');
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#btnreset').click(function () {
+            $('#FunctionFormId')[0].reset();
+            $(".field-validation-error").empty();
+            return false;
+        });
+    });
+</script>

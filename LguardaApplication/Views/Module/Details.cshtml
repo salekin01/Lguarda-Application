@@ -1,0 +1,233 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_MODULE_MAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="container scrollMainDiv">
+
+
+                <div class="row">
+                    <h4 class="PageTitle">Module Setup</h4>
+                    <a href="@Url.Action("Index")">
+                        <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class=" container scrollBodyDiv LeftPadding">
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary" style="text-align:left;">
+                            @Html.DisplayName("Service Id")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SERVICE_ID)
+                        </dd>
+                    </dl>
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary" style="text-align:left;">
+                            @Html.DisplayName("Service Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SERVICE_NM)
+                        </dd>
+                    </dl>
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary" style="text-align:left;">
+                            @Html.DisplayName("Module Id")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MODULE_ID)
+                        </dd>
+                    </dl>
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary" style="text-align:left;">
+                            @Html.DisplayName("Module Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MODULE_NM)
+                        </dd>
+                    </dl>
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary" style="text-align:left;">
+                            @Html.DisplayName("Module Short Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MODULE_SH_NM)
+                        </dd>
+                    </dl>
+                    <dl class=" container dl-horizontal">
+                        <dt class="text-primary" style="text-align:left;">
+                            @Html.DisplayName("Application Id")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.APPLICATION_ID)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary" style="text-align: left;">
+                            @Html.DisplayName("Application Name")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.APPLICATION_NAME)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary" style="text-align: left;">
+                            @Html.DisplayName("Auth Status Id")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AUTH_STATUS_ID)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary" style="text-align: left;">
+                            @Html.DisplayName("Last Action")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LAST_ACTION)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary" style="text-align: left;">
+                            @Html.DisplayName("Last Update Date")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LAST_UPDATE_DT)
+                        </dd>
+                    </dl>
+                    <dl class="container dl-horizontal">
+                        <dt class="text-primary" style="text-align: left;">
+                            @Html.DisplayName("Make Date")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MAKE_DT)
+                        </dd>
+                    </dl>
+                </div>
+
+                @if (ViewData["Error"] != null)
+                {
+                    <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>LG_FNR_MODULE_MAP</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MODULE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODULE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODULE_NM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODULE_NM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODULE_SH_NM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODULE_SH_NM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAKE_BY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAKE_BY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAKE_DT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAKE_DT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APPLICATION_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APPLICATION_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APPLICATION_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APPLICATION_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SERVICE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SERVICE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SERVICE_NM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SERVICE_NM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ERROR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ERROR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTH_STATUS_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTH_STATUS_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

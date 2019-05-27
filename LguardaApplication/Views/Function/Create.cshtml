@@ -1,0 +1,383 @@
+﻿@model LgurdaApp.Model.ControllerModels.LG_FNR_FUNCTION_MAP
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">Function Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.FUNCTION_ID, new { placeholder = "Function ID[Auto]", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FUNCTION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.FUNCTION_NM, new { placeholder = "Function Full Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FUNCTION_NM)
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---- Application ----", new { @id = "ddl_Application", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.SERVICE_ID, new List<SelectListItem>(), "---- Service ----", new { @id = "ddl_Service", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SERVICE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.MODULE_ID, new List<SelectListItem>(), "---- Module ----", new { @id = "ddl_Module", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MODULE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(model => model.ITEM_TYPE, new List<SelectListItem>(), "---- Item Type ----", new { @id = "ddl_ItemType", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ITEM_TYPE)
+                            </div>
+                        </div>
+
+
+                        <div id="HOFunctionFlagID" class="row LeftPadding" style="float:left; display:none;">
+                            <div class="col-xs-12">
+                                @Html.CheckBoxFor(model => model.HO_FUNCTION_FLAG_B, new { @id = "HO_FUNCTION_FLAG" })
+                                @Html.Label("HO Function Flag")
+                            </div>
+                        </div>
+                        <div id="ProcessFlagID" class="row LeftPadding" style="float:left; display:none;">
+                            <div class="col-xs-12">
+                                @*@Html.CheckBoxFor(model => model.PROCESS_FLAG_B, new { @id = "PROCESS_FLAG" })*@
+                                @Html.Label("Process Flag")
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-12" style="float:left;">
+                                <label> <u>Form Options</u> </label>
+                                @*@Html.Label("Form Options")*@
+                            </div>
+                        </div>
+
+                        <div class="LeftPadding">
+
+                            <div class="row LeftPadding" style="float: left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_CRT_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div id="CreateID" style="text-align:center;">
+                                    @Html.Label("Create")
+                                </div>
+                                <div id="AddID" style="text-align:center; display:none;">
+                                    @Html.Label("Add")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_EDT_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Edit")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_DEL_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Delete")
+                                </div>
+                            </div>
+                            <div id="DetailsID" class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_DTL_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Details")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_INDX_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div id="IndexID" style="text-align:center;">
+                                    @Html.Label("Index")
+                                </div>
+                                <div id="ViewID" style="text-align:center; display:none;">
+                                    @Html.Label("View")
+                                </div>
+                            </div>
+
+                            <div style="clear:left;"></div>
+                            @*<div id="MVCFieldIDs">*@
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.ENABLED_FLAG_B, new { @class = "form-control" })  @*1 = Function will create & will be Added in Menu, 0 = Function will be created only*@
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Menu Enable")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.PROCESS_FLAG_B, new { @class = "form-control" })  @*1 = FT, 0 = NFT*@
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("FT")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_OTP_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("OTP")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_BIO_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Biometric")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.CheckBoxFor(model => model.MAINT_2FA_FLAG_B, new { @id = "2FA_FLAG" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("2FA")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left; display: none;" id="2FA_HARD">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_2FA_HARD_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Soft")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left; display: none;" id="2FA_SOFT">
+                                <div class="col-xs-12">
+                                    @Html.EditorFor(model => model.MAINT_2FA_SOFT_FLAG_B, new { @class = "form-control" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Hard")
+                                </div>
+                            </div>
+                            <div class="row LeftPadding" style="float:left;">
+                                <div class="col-xs-12">
+                                    @Html.CheckBoxFor(model => model.MAINT_AUTH_FLAG_B, new { @id = "AUTH_FLAG" })
+                                </div>
+                                <div style="text-align:center;">
+                                    @Html.Label("Authorize")
+                                </div>
+                            </div>
+                            <div class="row" style="float:left; padding-left:2em;">
+                                <div class="col-xs-8 form-group ">
+                                    @Html.TextBoxFor(m => m.AUTH_LEVEL, new { placeholder = "Auth Level", id = "Auth_Level", @readonly = "readonly", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AUTH_LEVEL)
+                                </div>
+                            </div>
+                            @*</div>*@
+
+
+                        </div>
+
+                        <div id="ReportID" style="display: none;">
+                            <div>
+                                <div class="col-xs-12 LeftPadding " style="float:left;">
+                                    <label> <u>Report Options</u> </label>
+                                    @*@Html.Label("Report Options")*@
+                                </div>
+                            </div>
+
+                            <div class="LeftPadding">
+                                <div class="row LeftPadding" style="float:left;">
+                                    <div class="col-xs-12">
+                                        @Html.EditorFor(model => model.REPORT_VIEW_FLAG_B, new { @class = "form-control" })
+                                    </div>
+                                    <div style="text-align:center;">
+                                        @Html.Label("View")
+                                    </div>
+                                </div>
+                                <div class="row LeftPadding" style="float:left;">
+                                    <div class="col-xs-12">
+                                        @Html.EditorFor(model => model.REPORT_PRINT_FLAG_B, new { @class = "form-control" })
+                                    </div>
+                                    <div style="text-align:center;">
+                                        @Html.Label("Print")
+                                    </div>
+                                </div>
+                                <div class="row LeftPadding" style="float:left;">
+                                    <div class="col-xs-12">
+                                        @Html.EditorFor(model => model.REPORT_GEN_FLAG_B, new { @class = "form-control" })
+                                    </div>
+                                    <div style="text-align:center;">
+                                        @Html.Label("Generate")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="clear:left;"></div>
+
+                        <div id="WebFormFieldIDs" style="display: none;">
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(m => m.FAST_PATH_NO, new { placeholder = "Fast path", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FAST_PATH_NO)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(m => m.TARGET_PATH, new { placeholder = "Target path", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TARGET_PATH)
+                                </div>
+                            </div>
+                            <div class="row LeftPadding">
+                                <div class="col-xs-6 form-group ">
+                                    @Html.TextBoxFor(m => m.DB_ROLE_NAME, new { placeholder = "DB Role Name", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DB_ROLE_NAME)
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "Function")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                    }
+
+                    @Html.HiddenFor(m => m.APP_TYPE_ID)
+                </div>
+            }
+        </div>
+    </section>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Custom/FunctionSetup.js"></script>
+
+
+<script>
+    var serviceid = ('@Model.SERVICE_ID');
+    var moduleid = ('@Model.MODULE_ID');
+    var itemtype = ('@Model.ITEM_TYPE');
+
+    var appname = (function (p) {
+        var port = $(location).attr('port');
+        if ($.isNumeric(port)) {
+            var s = p.split("/").reverse();
+            var length = s.length - 1;
+            //s.splice(0, 2);
+            s.splice(0, length);
+            //alert("port");
+            return s.reverse().join("/");
+        }
+        else {
+            var pathname = $(location).attr('pathname');
+            var s = p.split("/");
+            var app_name1 = s[1];
+            var app_name = "/" + app_name1;
+            //alert("without port");
+            return app_name;
+        }
+    })(location.pathname);
+
+    $(document).ready(function () {
+        $('#ddl_Application').change(function () {
+            var ddlApplication = $('#ddl_Application').val();
+            if (ddlApplication.length > 0 && ddlApplication != 0) {
+                var host = $(location).attr('host');
+                var protocol = window.location.protocol;
+                $.ajax({
+                    type: "GET",
+                    url: protocol + "//" + host + appname + "/Function/GetAppTypeByAppId",
+                    datatype: "json",
+                    data: { app_id: $('#ddl_Application').val() },
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $('#APP_TYPE_ID').val(data);
+                        if (data == 2) {
+                            $('#ReportID').show();
+                            $('#HOFunctionFlagID').show();
+                            $('#ProcessFlagID').show();
+                            $('#WebFormFieldIDs').show();
+
+                            $('#CreateID').hide();
+                            $('#AddID').show();
+
+                            $('#IndexID').hide();
+                            $('#ViewID').show();
+
+                            $('#DetailsID').hide();
+                            //$('#MVCFieldIDs').hide();
+                        }
+                        else {
+                            $('#ReportID').hide();
+                            $('#HOFunctionFlagID').hide();
+                            $('#ProcessFlagID').hide();
+                            $('#WebFormFieldIDs').hide();
+
+                            $('#CreateID').show();
+                            $('#AddID').hide();
+
+                            $('#IndexID').show();
+                            $('#ViewID').hide();
+
+                            $('#DetailsID').show();
+                            //$('#MVCFieldIDs').show();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

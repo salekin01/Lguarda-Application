@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="Image/sysmanIco.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script type="text/javascript">window.history.forward(); function noBack() { window.history.forward(); }</script>
+</head>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="" class="">
+
+    <header class="main-header">
+        <div style="background: #4B3E5B;">
+            <nav class="navbar navbar-static-top">
+
+                <label for="drop" class="toggle">Menu </label>
+                <input type="checkbox" id="drop" />
+
+                <ul>
+                    <li class="float-left">
+                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle navigation</span>
+                        </a>
+                    </li>
+                    <li class="float-right">
+                        <label for="drop-7" class="toggle">Settings <span class="glyphicon glyphicon-play-circle"></span></label>
+                        <a href="#"><span class="glyphicon glyphicon-list right IndextIcon"></span></a>
+                        <input type="checkbox" id="drop-12" />
+                        <ul>
+                            @*<li class="divider"></li>
+                            <li> <a href="#">Favorites<span class="glyphicon glyphicon-star"></span> </a> </li>
+                            <li class="divider"></li>
+                            <li> <a href="@Url.Action("List", "Help")">Help<span class="glyphicon glyphicon-question-sign"></span> </a> </li>*@
+                            <li class="divider"></li>
+                            <li> <a href="@Url.Action("Index", "PasswordChange")">Change Password</a> </li>
+                            <li class="divider"></li>
+                            <li> <a href="@Url.Action("Logout", "Login")">SignOut<span class="glyphicon glyphicon-off"></span> </a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <aside class="main-sidebar" id="Main_Sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                @if (Session["MenuRearrange"] == null)
+                {
+                    @Html.Action("GetMenu", "Menu")
+                }
+                else
+                {
+                    @Html.Partial("~/Views/Menu/_Menu.cshtml", Session["MenuRearrange"])
+                }
+
+                @Html.Raw("</li>")
+            </ul>
+        </section>
+    </aside>
+    <div id="body">
+        <div style="width:100%">
+            @RenderBody()
+            @RenderSection("featured", required: false)
+        </div>
+    </div>
+    <footer>
+        <div class="float-center">
+            <p>
+                <span class="glyphicon glyphicon-user">&nbsp; @Session["currentUserID"]&nbsp;</span>
+                <span class="glyphicon glyphicon-qrcode ">&nbsp;@DateTime.Now.ToShortDateString() &nbsp;</span>
+                @*<span class="glyphicon glyphicon-gift ">&nbsp;@Session["branchID"]</span>*@
+            </p>
+        </div>
+    </footer>
+    <div class="footerCaption">
+        <p>&copy; @DateTime.Now.Year - LEADS Corporation Limited</p>
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-submenu a.test').on("click", function (e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+
+        $(document).keydown(function (e) {
+
+            // Set self as the current item in focus
+            var self = $(':focus'),
+                // Set the form by the current item in focus
+                form = self.parents('form:eq(0)'),
+                focusable;
+
+            // Array of Indexable/Tab-able items
+            focusable = form.find('input,a,select,button,textarea,div[contenteditable=true]').filter(':visible');
+
+            function enterKey() {
+                if (e.which === 13 && !self.is('textarea,div[contenteditable=true]')) { // [Enter] key
+
+                    // If not a regular hyperlink/button/textarea
+                    if ($.inArray(self, focusable) && (!self.is('a,button'))) {
+                        // Then prevent the default [Enter] key behaviour from submitting the form
+                        e.preventDefault();
+                    } // Otherwise follow the link/button as by design, or put new line in textarea
+
+                    // Focus on the next item (either previous or next depending on shift)
+                    focusable.eq(focusable.index(self) + (e.shiftKey ? -1 : 1)).focus();
+
+                    return false;
+                }
+            }
+            // We need to capture the [Shift] key and check the [Enter] key either way.
+            if (e.shiftKey) { enterKey() } else { enterKey() }
+        });
+
+        //$(document).ready(function () {
+        //    $('.main-sidebar').on("click", function (e) {
+        //        $(this).next('ul').toggle();
+        //        e.stopPropagation();
+        //        e.preventDefault();
+        //    });
+        //});
+    </script>
+
+    <script>
+        var appname = (function (p) {
+            var port = $(location).attr('port');
+            if ($.isNumeric(port)) {
+                var s = p.split("/").reverse();
+                var length = s.length - 1;
+                //s.splice(0, 2);
+                s.splice(0, length);
+                //alert("port");
+                return s.reverse().join("/");
+            }
+            else {
+                var pathname = $(location).attr('pathname');
+                var s = p.split("/");
+                var app_name1 = s[1];
+                var app_name = "/" + app_name1;
+                //alert("without port");
+                return app_name;
+            }
+        })(location.pathname);
+
+        //session end
+        var sessionTimeoutWarning = @Session.Timeout -1;
+        var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+        setTimeout('SessionEnd()', sTimeout);
+
+        function SessionEnd() {
+            var host = $(location).attr('host');
+            var protocol = window.location.protocol;
+            window.location = protocol + "//" + host + appname + "/Login/Logout"
+            //window.location = "/Login/Logout";
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(document).keydown(function (e) {
+                return (e.which || e.keyCode) != 116;
+            });
+        });
+    </script>
+
+    @if ((@ViewContext.RouteData.Values["controller"].ToString() != "RoleDefine") &&
+         (@ViewContext.RouteData.Values["controller"].ToString() != "RoleAssign") &&
+         (@ViewContext.RouteData.Values["controller"].ToString() != "Authorization"))
+    {
+        @Scripts.Render("~/bundles/jquery")
+    }
+
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

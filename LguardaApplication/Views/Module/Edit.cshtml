@@ -1,0 +1,114 @@
+﻿
+
+@model LgurdaApp.Model.ControllerModels.LG_FNR_MODULE_MAP
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ModuleFormId" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">Module Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.MODULE_ID)
+                    <div class="scrollBodyDiv LeftPadding">
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MODULE_ID, "Module Id", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MODULE_ID, new { @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MODULE_ID)
+
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MODULE_NM, "Module Nm", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MODULE_NM, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MODULE_NM)
+                            
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MODULE_SH_NM, "Module Sh Nm", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MODULE_SH_NM, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MODULE_SH_NM)
+                          
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.APPLICATION_ID,"Application Nm", new { @class = "control-label col-md-3" })
+                                @Html.DropDownListFor(model => model.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---------- Select ----------", new { @class = "form-control", @disabled = "disabled" })
+                                 @Html.HiddenFor(model => model.APPLICATION_ID)
+                                 @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.SERVICE_ID,"Service Nm", new { @class = "control-label col-md-3" })
+                                @Html.DropDownListFor(model => model.SERVICE_ID, Model.SERVICE_LIST_FOR_DD, "---------- Select ----------", new { @class = "form-control", @disabled = "disabled" })
+                                @Html.HiddenFor(model => model.SERVICE_ID)
+                                @Html.ValidationMessageFor(model => model.SERVICE_ID)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="row LeftPadding">
+                                <div class="col-xs-2 form-group ">
+                                    <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-floppy-disk"></i>
+                                    </button>
+                                    <button type="reset" class="btn btn-primary " id="btnreset" value="Clear">
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+        </div>
+    </section>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnreset').click(function () {
+            $('#ModuleFormId')[0].reset();
+            $(".field-validation-error").empty();
+            $(".element").empty();
+            //$(".errormsg").empty();
+            return false;
+        });
+    });
+</script>

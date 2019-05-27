@@ -1,0 +1,96 @@
+﻿
+
+@model LgurdaApp.Model.ControllerModels.LG_SYS_MAIL_SERVER_CONFIG_MAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div class="row">
+                        <h4 class="PageTitle">Mail Server Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <div class="scrollBodyDiv LeftPadding ">
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.DropDownListFor(m => m.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "-------Application-------", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.MAIL_ID, new { placeholder = "Mail ID [Auto]", @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_ID)
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.MAIL_SENDER_IP, new { placeholder = "Mail sender IP", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_IP)
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.MAIL_SENDER_ADDRESS, new { placeholder = "Mail sender addess", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_ADDRESS)
+                            </div>
+                        </div>
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.PasswordFor(m => m.MAIL_SENDER_PASSWORD, new { placeholder = "Mail sender password", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_PASSWORD)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.TextBoxFor(m => m.MAIL_SENDER_NAME, new { placeholder = "Mail sender name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_NAME)
+                            </div>
+                        </div>
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                
+                                <button type="submit" name="command" value="Save" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                             <button type="button" class="btn btn-primary" id="btnNew" value="Clear" @((ViewBag.Session != null) ? "disabled" : "") onclick="location.href='@Url.Action("Create", "MailServer")'">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                    @if (ViewData["Error"] != null)
+                    {
+                        <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+                    }
+                    @if (ViewData["Success"] != null)
+                    {
+                        <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+                    }
+                </div>
+            }
+
+        </div>
+
+    </section>
+}
+

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Unauthorised Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section featured
+{
+
+
+<section class="featured">
+    <div class="content-wrapper">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container scrollMainDiv">
+                <div class="container scrollMainDiv">
+                    <div class="row">
+
+                        <a href="@Url.Action("Index", "Home")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true)
+
+                    <div>
+                        <h3>Unauthorised Request</h3>
+                        <p />
+                        <h4>
+                            You do not have permission to access the requested resource due to security restrictions.
+                            In order to gain access, please contact with your system administrator.
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</section>
+    }
+
+
+

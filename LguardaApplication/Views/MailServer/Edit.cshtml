@@ -1,0 +1,116 @@
+﻿
+
+@model LgurdaApp.Model.ControllerModels.LG_SYS_MAIL_SERVER_CONFIG_MAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="container scrollMainDiv">
+                    <div>
+                        <h4 class="PageTitle">OTP Setup</h4>
+                        <a href="@Url.Action("Index")">
+                            <span class="glyphicon glyphicon-chevron-left LeftPadding"></span><span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    @*<hr />*@
+                    @Html.ValidationSummary(true)
+                    @*@Html.HiddenFor(model => model.APPLICATION_ID)*@
+                    <div class="scrollBodyDiv LeftPadding">
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.APPLICATION_ID, "Application Id", new { @class = "control-label col-md-3" })
+                                @Html.DropDownListFor(model => model.APPLICATION_ID, Model.APPLICATION_LIST_FOR_DD, "---------- Select ----------", new { @id = "ddl_Application", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.APPLICATION_ID)
+                           
+                               
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+
+                                @Html.LabelFor(model => model.MAIL_ID, "Mail Id", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MAIL_ID, new { @readonly = "readonly", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_ID)
+
+
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MAIL_SENDER_IP, "Mail Sender Ip", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MAIL_SENDER_IP, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_IP)
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MAIL_SENDER_ADDRESS, "Mail Sender Address", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MAIL_SENDER_ADDRESS, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_ADDRESS)
+
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+
+                                @Html.LabelFor(model => model.MAIL_SENDER_PASSWORD, "Mail Sender Password", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MAIL_SENDER_PASSWORD, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_PASSWORD)
+
+                            </div>
+                        </div>
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-6 form-group ">
+                                @Html.LabelFor(model => model.MAIL_SENDER_NAME, "Mail Sender Name", new { @class = "control-label col-md-3" })
+                                @Html.TextBoxFor(model => model.MAIL_SENDER_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAIL_SENDER_NAME)
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row LeftPadding">
+                            <div class="col-xs-2 form-group ">
+                               
+                                <button type="submit" name="command" value="Update" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewData["Error"] != null)
+            {
+                <p class="element errormsg"> @ViewData["Error"].ToString()</p>
+            }
+            @if (ViewData["Success"] != null)
+            {
+                <p class="element successmsg"> @ViewData["Success"].ToString()</p>
+            }
+
+        </div>
+    </section>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LgardaService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LgurdaService.Model.DBModel" />
+      <xsd:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LgurdaService.Model" />
+      <xsd:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Web.Mvc" />
+      <xsd:import schemaLocation="http://localhost/LgurdaService/LgardaService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILgardaService_GetApplications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplications" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetApplications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddApplication" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplication" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServices" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddService_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddService" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateService_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateService" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModules" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModule" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModule" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctions" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFunction" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFunction" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoles" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRole" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionsByRoleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionsByRoleID" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionsByRoleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionsByRoleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserSetupInfoByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSetupInfoByUserId" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserSetupInfoByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSetupInfoByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRoleAssignInfoByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleAssignInfoByUserId" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRoleAssignInfoByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleAssignInfoByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetApplicationForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetApplicationForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetServiceForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetServiceForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetServiceByAppIdForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceByAppIdForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetServiceByAppIdForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceByAppIdForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetModuleByServiceIdForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleByServiceIdForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetModuleByServiceIdForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleByServiceIdForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionByModuleIdForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionByModuleIdForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionByModuleIdForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionByModuleIdForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionByModuleIdAndItemtypeForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionByModuleIdAndItemtypeForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionByModuleIdAndItemtypeForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionByModuleIdAndItemtypeForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionGroupForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionGroupForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetFunctionGroupForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFunctionGroupForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetItemtypeForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemtypeForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetItemtypeForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemtypeForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserClassificationForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserClassificationForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserClassificationForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserClassificationForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserAreaIdForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAreaIdForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserAreaIdForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAreaIdForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetAllUserAreaForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserAreaForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetAllUserAreaForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserAreaForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetBranchForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetBranchForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetAuthenticationTypeForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthenticationTypeForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetAuthenticationTypeForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthenticationTypeForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetWorkHourTypeForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkHourTypeForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetWorkHourTypeForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkHourTypeForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetTwoFAtypeForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTwoFAtypeForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetTwoFAtypeForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTwoFAtypeForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetOTPFormatForDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOTPFormatForDD" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetOTPFormatForDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOTPFormatForDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetAllUserSetupInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserSetupInfo" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetAllUserSetupInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserSetupInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserSetupDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSetupDetails" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetUserSetupDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSetupDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetOtpConfiguations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOtpConfiguations" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetOtpConfiguations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOtpConfiguationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddOtpConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOtpConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddOtpConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOtpConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateOtpConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOtpConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateOtpConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOtpConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GenerateToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateToken" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GenerateToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_VerifyToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyToken" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_VerifyToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetMailServerConfigs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailServerConfigs" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetMailServerConfigs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailServerConfigsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddMailServerConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMailServerConfig" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddMailServerConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMailServerConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateMailServerConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMailServerConfig" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateMailServerConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMailServerConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRoleAssign_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleAssign" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRoleAssign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleAssignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddRoleAssign_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleAssign" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddRoleAssign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleAssignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRolesByApplicationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByApplicationID" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRolesByApplicationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByApplicationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRolesByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserID" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetRolesByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateRoleAssign_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoleAssign" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdateRoleAssign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoleAssignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_VerifyUserAndPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyUserAndPassword" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_VerifyUserAndPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyUserAndPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddPasswordPolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPasswordPolicy" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_AddPasswordPolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPasswordPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetPasswordPolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordPolicy" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetPasswordPolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdatePasswordPolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordPolicy" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_UpdatePasswordPolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetString" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetBool_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBool" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_GetBool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_PostString_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostString" />
+  </wsdl:message>
+  <wsdl:message name="ILgardaService_PostString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostStringResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILgardaService">
+    <wsdl:operation name="GetApplications">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetApplications" message="tns:ILgardaService_GetApplications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetApplicationsResponse" message="tns:ILgardaService_GetApplications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddApplication" message="tns:ILgardaService_AddApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddApplicationResponse" message="tns:ILgardaService_AddApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateApplication" message="tns:ILgardaService_UpdateApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateApplicationResponse" message="tns:ILgardaService_UpdateApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetServices" message="tns:ILgardaService_GetServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetServicesResponse" message="tns:ILgardaService_GetServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddService">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddService" message="tns:ILgardaService_AddService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddServiceResponse" message="tns:ILgardaService_AddService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateService">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateService" message="tns:ILgardaService_UpdateService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateServiceResponse" message="tns:ILgardaService_UpdateService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetModules" message="tns:ILgardaService_GetModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetModulesResponse" message="tns:ILgardaService_GetModules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddModule" message="tns:ILgardaService_AddModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddModuleResponse" message="tns:ILgardaService_AddModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateModule" message="tns:ILgardaService_UpdateModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateModuleResponse" message="tns:ILgardaService_UpdateModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetFunctions" message="tns:ILgardaService_GetFunctions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionsResponse" message="tns:ILgardaService_GetFunctions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFunction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddFunction" message="tns:ILgardaService_AddFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddFunctionResponse" message="tns:ILgardaService_AddFunction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateFunction" message="tns:ILgardaService_UpdateFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateFunctionResponse" message="tns:ILgardaService_UpdateFunction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetRoles" message="tns:ILgardaService_GetRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetRolesResponse" message="tns:ILgardaService_GetRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddRole" message="tns:ILgardaService_AddRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddRoleResponse" message="tns:ILgardaService_AddRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateRole" message="tns:ILgardaService_UpdateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateRoleResponse" message="tns:ILgardaService_UpdateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionsByRoleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionsByRoleID" message="tns:ILgardaService_GetFunctionsByRoleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionsByRoleIDResponse" message="tns:ILgardaService_GetFunctionsByRoleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSetupInfoByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetUserSetupInfoByUserId" message="tns:ILgardaService_GetUserSetupInfoByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetUserSetupInfoByUserIdResponse" message="tns:ILgardaService_GetUserSetupInfoByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleAssignInfoByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetRoleAssignInfoByUserId" message="tns:ILgardaService_GetRoleAssignInfoByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetRoleAssignInfoByUserIdResponse" message="tns:ILgardaService_GetRoleAssignInfoByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetApplicationForDD" message="tns:ILgardaService_GetApplicationForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetApplicationForDDResponse" message="tns:ILgardaService_GetApplicationForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetServiceForDD" message="tns:ILgardaService_GetServiceForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetServiceForDDResponse" message="tns:ILgardaService_GetServiceForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceByAppIdForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetServiceByAppIdForDD" message="tns:ILgardaService_GetServiceByAppIdForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetServiceByAppIdForDDResponse" message="tns:ILgardaService_GetServiceByAppIdForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleByServiceIdForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetModuleByServiceIdForDD" message="tns:ILgardaService_GetModuleByServiceIdForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetModuleByServiceIdForDDResponse" message="tns:ILgardaService_GetModuleByServiceIdForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByModuleIdForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionByModuleIdForDD" message="tns:ILgardaService_GetFunctionByModuleIdForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionByModuleIdForDDResponse" message="tns:ILgardaService_GetFunctionByModuleIdForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByModuleIdAndItemtypeForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionByModuleIdAndItemtypeForDD" message="tns:ILgardaService_GetFunctionByModuleIdAndItemtypeForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionByModuleIdAndItemtypeForDDResponse" message="tns:ILgardaService_GetFunctionByModuleIdAndItemtypeForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionGroupForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionGroupForDD" message="tns:ILgardaService_GetFunctionGroupForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetFunctionGroupForDDResponse" message="tns:ILgardaService_GetFunctionGroupForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemtypeForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetItemtypeForDD" message="tns:ILgardaService_GetItemtypeForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetItemtypeForDDResponse" message="tns:ILgardaService_GetItemtypeForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserClassificationForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetUserClassificationForDD" message="tns:ILgardaService_GetUserClassificationForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetUserClassificationForDDResponse" message="tns:ILgardaService_GetUserClassificationForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAreaIdForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetUserAreaIdForDD" message="tns:ILgardaService_GetUserAreaIdForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetUserAreaIdForDDResponse" message="tns:ILgardaService_GetUserAreaIdForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserAreaForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetAllUserAreaForDD" message="tns:ILgardaService_GetAllUserAreaForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetAllUserAreaForDDResponse" message="tns:ILgardaService_GetAllUserAreaForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetBranchForDD" message="tns:ILgardaService_GetBranchForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetBranchForDDResponse" message="tns:ILgardaService_GetBranchForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthenticationTypeForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetAuthenticationTypeForDD" message="tns:ILgardaService_GetAuthenticationTypeForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetAuthenticationTypeForDDResponse" message="tns:ILgardaService_GetAuthenticationTypeForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkHourTypeForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetWorkHourTypeForDD" message="tns:ILgardaService_GetWorkHourTypeForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetWorkHourTypeForDDResponse" message="tns:ILgardaService_GetWorkHourTypeForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTwoFAtypeForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetTwoFAtypeForDD" message="tns:ILgardaService_GetTwoFAtypeForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetTwoFAtypeForDDResponse" message="tns:ILgardaService_GetTwoFAtypeForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOTPFormatForDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetOTPFormatForDD" message="tns:ILgardaService_GetOTPFormatForDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetOTPFormatForDDResponse" message="tns:ILgardaService_GetOTPFormatForDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserSetupInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetAllUserSetupInfo" message="tns:ILgardaService_GetAllUserSetupInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetAllUserSetupInfoResponse" message="tns:ILgardaService_GetAllUserSetupInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddUser" message="tns:ILgardaService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddUserResponse" message="tns:ILgardaService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSetupDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetUserSetupDetails" message="tns:ILgardaService_GetUserSetupDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetUserSetupDetailsResponse" message="tns:ILgardaService_GetUserSetupDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOtpConfiguations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetOtpConfiguations" message="tns:ILgardaService_GetOtpConfiguations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetOtpConfiguationsResponse" message="tns:ILgardaService_GetOtpConfiguations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOtpConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddOtpConfiguration" message="tns:ILgardaService_AddOtpConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddOtpConfigurationResponse" message="tns:ILgardaService_AddOtpConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOtpConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateOtpConfiguration" message="tns:ILgardaService_UpdateOtpConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateOtpConfigurationResponse" message="tns:ILgardaService_UpdateOtpConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GenerateToken" message="tns:ILgardaService_GenerateToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GenerateTokenResponse" message="tns:ILgardaService_GenerateToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/VerifyToken" message="tns:ILgardaService_VerifyToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/VerifyTokenResponse" message="tns:ILgardaService_VerifyToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/RegisterUser" message="tns:ILgardaService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/RegisterUserResponse" message="tns:ILgardaService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateUser" message="tns:ILgardaService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateUserResponse" message="tns:ILgardaService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailServerConfigs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetMailServerConfigs" message="tns:ILgardaService_GetMailServerConfigs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetMailServerConfigsResponse" message="tns:ILgardaService_GetMailServerConfigs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMailServerConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddMailServerConfig" message="tns:ILgardaService_AddMailServerConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddMailServerConfigResponse" message="tns:ILgardaService_AddMailServerConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailServerConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateMailServerConfig" message="tns:ILgardaService_UpdateMailServerConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateMailServerConfigResponse" message="tns:ILgardaService_UpdateMailServerConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleAssign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetRoleAssign" message="tns:ILgardaService_GetRoleAssign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetRoleAssignResponse" message="tns:ILgardaService_GetRoleAssign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleAssign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddRoleAssign" message="tns:ILgardaService_AddRoleAssign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddRoleAssignResponse" message="tns:ILgardaService_AddRoleAssign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByApplicationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetRolesByApplicationID" message="tns:ILgardaService_GetRolesByApplicationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetRolesByApplicationIDResponse" message="tns:ILgardaService_GetRolesByApplicationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetRolesByUserID" message="tns:ILgardaService_GetRolesByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetRolesByUserIDResponse" message="tns:ILgardaService_GetRolesByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoleAssign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdateRoleAssign" message="tns:ILgardaService_UpdateRoleAssign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdateRoleAssignResponse" message="tns:ILgardaService_UpdateRoleAssign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyUserAndPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/VerifyUserAndPassword" message="tns:ILgardaService_VerifyUserAndPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/VerifyUserAndPasswordResponse" message="tns:ILgardaService_VerifyUserAndPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPasswordPolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/AddPasswordPolicy" message="tns:ILgardaService_AddPasswordPolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/AddPasswordPolicyResponse" message="tns:ILgardaService_AddPasswordPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordPolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetPasswordPolicy" message="tns:ILgardaService_GetPasswordPolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetPasswordPolicyResponse" message="tns:ILgardaService_GetPasswordPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePasswordPolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/UpdatePasswordPolicy" message="tns:ILgardaService_UpdatePasswordPolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/UpdatePasswordPolicyResponse" message="tns:ILgardaService_UpdatePasswordPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetString">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetString" message="tns:ILgardaService_GetString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetStringResponse" message="tns:ILgardaService_GetString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBool">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/GetBool" message="tns:ILgardaService_GetBool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/GetBoolResponse" message="tns:ILgardaService_GetBool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostString">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILgardaService/PostString" message="tns:ILgardaService_PostString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILgardaService/PostStringResponse" message="tns:ILgardaService_PostString_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicHttpBindingSOAP" type="tns:ILgardaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetApplications">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApplication">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplication">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddService">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateService">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModules">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModule">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModule">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctions">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetFunctions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFunction">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunction">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRole">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionsByRoleID">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetFunctionsByRoleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSetupInfoByUserId">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetUserSetupInfoByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleAssignInfoByUserId">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetRoleAssignInfoByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetApplicationForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetServiceForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceByAppIdForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetServiceByAppIdForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleByServiceIdForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetModuleByServiceIdForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByModuleIdForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetFunctionByModuleIdForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByModuleIdAndItemtypeForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetFunctionByModuleIdAndItemtypeForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionGroupForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetFunctionGroupForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemtypeForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetItemtypeForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserClassificationForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetUserClassificationForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAreaIdForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetUserAreaIdForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserAreaForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetAllUserAreaForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetBranchForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthenticationTypeForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetAuthenticationTypeForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkHourTypeForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetWorkHourTypeForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTwoFAtypeForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetTwoFAtypeForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOTPFormatForDD">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetOTPFormatForDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserSetupInfo">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetAllUserSetupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSetupDetails">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetUserSetupDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOtpConfiguations">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetOtpConfiguations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOtpConfiguration">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddOtpConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOtpConfiguration">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateOtpConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateToken">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GenerateToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyToken">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/VerifyToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailServerConfigs">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetMailServerConfigs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMailServerConfig">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddMailServerConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailServerConfig">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateMailServerConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleAssign">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetRoleAssign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleAssign">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddRoleAssign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByApplicationID">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetRolesByApplicationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByUserID">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetRolesByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoleAssign">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdateRoleAssign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyUserAndPassword">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/VerifyUserAndPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPasswordPolicy">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/AddPasswordPolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordPolicy">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetPasswordPolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePasswordPolicy">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/UpdatePasswordPolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetString">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBool">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/GetBool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostString">
+      <soap:operation soapAction="http://tempuri.org/ILgardaService/PostString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LgardaService">
+    <wsdl:port name="basicHttpBindingSOAP" binding="tns:basicHttpBindingSOAP">
+      <soap:address location="http://localhost/LgurdaService/LgardaService.svc/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
