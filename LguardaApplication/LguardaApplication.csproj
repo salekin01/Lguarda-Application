@@ -22,6 +22,8 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -359,6 +361,9 @@
     <None Include="Service References\LgardaServiceRef\LgardaService.disco" />
     <None Include="Service References\LgardaServiceRef\configuration91.svcinfo" />
     <None Include="Service References\LgardaServiceRef\configuration.svcinfo" />
+    <Content Include="SDK\sdk.4.2.2084.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Service References\LgardaServiceRef\LguardaApplication.LgardaServiceRef.Bool_Check.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
